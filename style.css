@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+  -ms-overflow-style: none;
+  overflow: hidden;
+  overflow: -moz-scrollbars-none; 
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#fixed-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gutter {
+  position: absolute;
+  width: calc(var(--gw) * 1px);
+  height: calc(var(--gh) * 1px);
+}
+
+.vg {
+  display: var(--vg);
+}
+
+.hg {
+  display: var(--hg);
+}
+
+.gutter-top {
+  top: 0;
+}
+
+.gutter-right {
+  right: 0;
+}
+
+.gutter-bottom {
+  bottom: 0;
+}
+
+.gutter-left {
+  left: 0;
+}
+
+#msc {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.vp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.ur {
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+}
+
+.abs {
+  position: absolute;
+}
+
+i {
+  font-style: italic;
+  padding-right: 0.5ch;
+}
+
+.desktop {
+  display: none;
+}
+
+.cv2 {
+  width: 100%;
+  height: 200%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi2 {
+  width: 100%;
+  height: 50%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv3 {
+  width: 100%;
+  height: 300%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi3 {
+  width: 100%;
+  height: 33.3333%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* DESKTOP ////////////////////////////////////////////// */
+@media only screen and (orientation: landscape) {
+  .cv2, .cv3 {
+    height: 100%;
+    position: relative;
+  }
+
+  .cvi2, .cvi3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .cvi2 a, .cvi3 a {
+    pointer-events: initial;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: initial;
+  }
+}

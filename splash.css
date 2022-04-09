@@ -1,0 +1,433 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+  display: block;
+}
+a:focus {
+	outline: none;
+}
+
+/* CSS TOOLS //////////////////////////////////////////// */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+  -ms-overflow-style: none;
+  overflow: hidden;
+  overflow: -moz-scrollbars-none; 
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#fixed-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gutter {
+  position: absolute;
+  width: calc(var(--gw) * 1px);
+  height: calc(var(--gh) * 1px);
+}
+
+.vg {
+  display: var(--vg);
+}
+
+.hg {
+  display: var(--hg);
+}
+
+.gutter-top {
+  top: 0;
+}
+
+.gutter-right {
+  right: 0;
+}
+
+.gutter-bottom {
+  bottom: 0;
+}
+
+.gutter-left {
+  left: 0;
+}
+
+#msc {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.vp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.ur {
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+}
+
+.abs {
+  position: absolute;
+}
+
+/* CONTENT /////////////////////////////////////////////// */
+/* ANIMATIONS -------------------------------------------------- */
+@keyframes fade-in {from{opacity:0;} to{opacity:1;}}
+@keyframes scale-v {
+  from {
+    transform: scaleY(0);
+    opacity: 1;
+  } to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  }
+@keyframes scale-h {
+  from {
+    opacity: 1;
+    transform: scaleX(0);
+  } to {
+    opacity: 1;
+    transform: scaleY(1);
+}}
+
+/* GENERAL ------------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/60);
+  font-family: "Montserrat", sans-serif;
+}
+
+.vp {
+  background-color: black;
+}
+
+.ur {
+  background-color: white;
+}
+
+/* HEADER ---------------------------------------------------- */
+h1 {
+  font-size: calc(var(--wpx)/8);
+  left: 21%;
+  top: 25%;
+  opacity: 0;
+  animation: fade-in 2s 7s ease-in forwards;
+}
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/100);
+  background-color: white;
+  width: 11%;
+  height: 6%;
+  text-align: center;
+  transition: border-radius 0.5s, background-color 1.4s; 
+  top: 36%;
+  left: 52%;
+  opacity: 0;
+  animation: fade-in 2s 8.5s ease-in forwards;
+}
+
+.arrow-link svg {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-link path {
+  transition: fill 2s;
+}
+
+.arrow-link:hover, .arrow-link:focus {
+  border-radius: 0;
+  background-color: black;
+}
+
+.arrow-link:hover path, .arrow-link:focus path {
+  fill: red;
+}
+
+/* LINES ----------------------------------------------- */
+.line {
+  background-color: black;
+  opacity: 0;
+}
+
+.rec {
+  opacity: 0;
+}
+
+#line1 {
+  transform-origin: 0% 50%;
+  animation: scale-h 4s 1s forwards ease-in-out;
+  height: var(--l);
+  top: 20%;
+  width: 100%;
+}
+
+#line2 {
+  transform-origin: 50% 0%;
+  animation: scale-v 4s 2s forwards ease-in-out;
+  width: var(--l);
+  left: 15%;
+  height: 100%;
+}
+
+/* RECS ------------------------------------------------ */
+#rec1 {
+  animation: fade-in 2s 4s forwards ease-out;
+  background-color: yellow;
+  width: 85%;
+  height: 20%;
+  left: 15%;
+}
+
+#rec2 {
+  animation: fade-in 4s 5.5s forwards ease-out;
+  background-color: red;
+  width: 15%;
+  height: 80%;
+  top: 20%;
+}
+
+/* LANDSCAPE ////////////////////////////////////////////// */
+@media only screen and (orientation: landscape) {
+  /* GENERAL ---------------------------------------------- */
+  :root {
+    --l: calc(var(--wpx)/150);
+  }
+
+  /* HEADER ------------------------------------------ */
+  h1 {
+    font-size: calc(var(--wpx)/12);
+    left: 26%;
+    top: 25%;
+    animation: fade-in 6s 5s forwards ease-in;
+  }
+
+  /* NAVIGATION ------------------------------------------- */
+  .arrow-link {
+    border-width: calc(var(--wpx)/300);
+    width: 6%;
+    height: 9%;
+    top: 50%;
+    left: 48%;
+    animation: fade-in 3s 12s forwards ease-in;
+  }
+
+  /* LINES ----------------------------------- */
+  #line1 {
+    top: 95%;
+  }
+
+  #line2 {
+    transform-origin: 50% 100%;
+    animation: scale-v 3s 2s ease-in-out forwards;
+    left: 10%;
+    height: 95%;
+  }
+
+  #line3 {
+    transform-origin: 100% 50%;
+    animation: scale-h 2.5s 2.5s forwards ease-in-out;
+    height: var(--l);
+    width: 90%;
+    top: 5%;
+    left: 10%;
+  }
+
+  #line4 {
+    width: var(--l);
+    transform-origin: 50% 0%;
+    animation: scale-v 3s 2s forwards ease-in-out;
+    left: 95%;
+    height: 100%;
+  }
+
+  #line5 {
+    transform-origin: 0% 50%;
+    animation: scale-h 2s 2.5s forwards ease-in-out;
+    width: 10%;
+    height: var(--l);
+    top: 30%;
+  }
+
+  #line6 {
+    transform-origin: 0% 50%;
+    animation: scale-h 2s 2s forwards ease-in-out;
+    width: 10%;
+    height: var(--l);
+    top: 60%;
+  }
+
+  #line7 {
+    transform-origin: 50% 100%;
+    width: var(--l);
+    height: 100%;
+    animation: scale-v 2.5s 2.5s forwards ease-in-out;
+    left: 93%;
+  }
+
+  #line8 {
+    transform-origin: 100% 50%;
+    animation: scale-h 1s 3.5s forwards ease-in-out;
+    width: 7%;
+    height: var(--l);
+    top: 20%;
+    left: 93%;
+  }
+
+  #line9 {
+    transform-origin: 100% 50%;
+    animation: scale-h 1s 4s forwards ease-in-out;
+    width: 7%;
+    height: var(--l);
+    top: 50%;
+    left: 93%;
+  }
+
+  #line10 {
+    transform-origin: 100% 50%;
+    animation: scale-h 1s 4.5s forwards ease-in-out;
+    width: 7%;
+    height: var(--l);
+    top: 90%;
+    left: 93%;   
+  }
+
+  /* RECS ------------------------------------------ */
+  #rec1 {
+    animation: fade-in 2s 4s forwards ease-out;
+    height: 5%;
+    top: 95%;
+    left: 0;
+    width: 93%;
+  }
+
+  #rec2 {
+    animation: fade-in 2s 6s forwards ease-out;
+    height: 30%;
+    width: 10%;
+    top: 0;
+  }
+
+  #rec3 {
+    animation: fade-in 2s 7s forwards ease-out;
+    background-color: yellow;
+    height: 5%;
+    width: 90%;
+    left: 10%;
+  }
+
+  #rec4 {
+    animation: fade-in 1s 8s forwards ease-out;
+    background-color: blue;
+    width: 2%;
+    height: 5%;
+    left: 93%;
+  }
+
+  #rec5 {
+    animation: fade-in 3s 5s forwards ease-out;
+    background-color: blue;
+    width: 10%;
+    height: 35%;
+    top: 60%;
+  }
+
+  #rec6 {
+    animation: fade-in 3s 10s forwards ease-out;
+    background-color: blue;
+    width: 5%;
+    height: 30%;
+    left: 95%;
+    top: 20%;
+  }
+
+  #rec7 {
+    animation: fade-in 1s 9s forwards ease-out;
+    background-color: red;
+    width: 2%;
+    height: 30%;
+    top: 20%;
+    left: 93%;
+  }
+}
