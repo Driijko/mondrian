@@ -117,9 +117,6 @@ body {
 }
 
 /* CONTENT /////////////////////////////////////////////// */
-#page1 {
-  display: none;
-}
 /* ANIMATIONS -------------------------------------------------- */
 @keyframes fade-in {from{opacity:0;} to{opacity:1;}}
 @keyframes scale-v {
@@ -146,11 +143,11 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.vp {
+#fixed-layer {
   background-color: black;
 }
 
-.ur {
+#fixed-layer .ur {
   background-color: white;
 }
 
@@ -175,6 +172,7 @@ h1 {
   font-size: calc(var(--wpx)/8);
   left: 12%;
   top: 1%;
+  animation: fade-in 2s ease-in forwards;
 }
 
 /* NAVIGATION ------------------------------------------------ */
@@ -204,13 +202,24 @@ h1 {
   transition: fill 2s;
 }
 
-.arrow-link:hover, .arrow-link:focus {
+.arrow-link:focus-visible {
   border-radius: 0;
   background-color: black;
 }
 
-.arrow-link:hover path, .arrow-link:focus path {
+.arrow-link:focus-visible path {
   fill: red;
+}
+
+@media (hover:hover) {
+  .arrow-link:hover {
+    border-radius: 0;
+    background-color: black;
+  }
+  
+  .arrow-link:hover path {
+    fill: red;
+  } 
 }
 
 .bottom {
@@ -221,6 +230,11 @@ h1 {
 .top {
   top: 3%;
   left: 45%;
+}
+
+#page1 .arrow-link {
+  animation: fade-in 2s 3s ease-in forwards;
+  opacity: 0;
 }
 
 /* LIST ---------------------------------------------------- */
@@ -263,6 +277,21 @@ ol a .date {
   font-style: italic;
 }
 
+#page1 li:nth-child(1) {
+  opacity: 0;
+  animation: fade-in 2s 0.5s ease-in forwards;
+}
+
+#page1 li:nth-child(2) {
+  opacity: 0;
+  animation: fade-in 2s 1.25s ease-in forwards;
+}
+
+#page1 li:nth-child(3) {
+  opacity: 0;
+  animation: fade-in 2s 2s ease-in forwards;
+}
+
 #page3 ol {
   height: 50%;
   justify-content:space-evenly;
@@ -281,16 +310,19 @@ ol a:hover, ol a:focus {
 /* LINES ----------------------------------------------- */
 .line {
   background-color: black;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 /* RECS ------------------------------------------------- */
 .rec {
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 /* LANDSCAPE ////////////////////////////////////////////// */
 @media only screen and (orientation: landscape) {
+  /* #page1 .ur {
+  display: none;
+  } */
   /* CSS TOOLS ------------------------------------------- */
   .desktop-abs {
     position: absolute;
@@ -301,6 +333,53 @@ ol a:hover, ol a:focus {
     --l: calc(var(--wpx)/150);
   }
 
+  /* FIXED LAYER //////////////////////////////////////// */
+  /* LINES ------------------------------------------------- */
+  #line1 {
+    /* animation: h-zip 3s 1s ease-in-out forwards; */
+    width: 100%;
+    height: var(--l);
+    top: 25%;
+  }
+
+  #line2 {
+    width: var(--l);
+    height: 100%;
+    /* animation: v-zip 3s 1.5s ease-in-out forwards; */
+    left: 15%;
+  }
+
+  #line3 {
+    /* animation: line3 2s 2s forwards ease-out; */
+    width: 15%;
+    height: var(--l);
+    top: 5%;
+  }
+
+  #line4 {
+    width: var(--l);
+    height: 25%;
+    /* animation: line4 2.5s 2.5s forwards ease-out; */
+    left: 2%;
+  }
+
+  /* RECS ------------------------------------------------------ */
+  #rec1 {
+    /* animation: fade-in 2s 4s ease-out forwards; */
+    background-color: blue;
+    top: 5%;
+    left: 2%;
+    width: 13%;
+    height: 20.1%;
+  }
+
+  /* HEADER ----------------------------------------------------- */
+  h1 {
+    left: 48%;
+    top: 3%;
+    font-size: calc(var(--wpx)/12);
+  }
+
   /* NAVIGATION ------------------------------------------- */
   .arrow-link {
     border-width: calc(var(--wpx)/300);
@@ -308,6 +387,107 @@ ol a:hover, ol a:focus {
     height: 9%;
     top: 50%;
     left: 48%;
-    animation: fade-in 3s 12s forwards ease-in;
+  }
+  /* NAVIGATION -------------------------------------------- */
+  #page1 .arrow-link {
+    /* opacity: 0;
+    animation: fade-in 2s 8s ease-out forwards; */
+  }
+
+  .bottom {
+    left: 55%;
+    top: 75%;
+  }
+
+  .top {
+    left: 55%;
+    top: 10%;
+  }
+
+  #page2 .bottom {
+    top: 88%;
+  }
+  /* LIST ----------------------------------------------------- */
+  #page1 ol {
+    /* opacity: 0;
+    animation: fade-in 2s 6s ease-out forwards; */
+    width: 70%;
+    height: 20%;
+    top: 45%;
+    left: 23%;
+    flex-direction: row;
+  } 
+
+  #page1 li {
+    width: 50%;
+  }
+  
+  #page2 ol {
+    top: 25%;
+    left: 15%;
+    width: 85%;
+    height: 75%;
+  }
+
+  #page2 li {
+    width: 30%;
+  }
+
+  #list2-1 {
+    left: 35.5%;
+    top: 13%;
+  }
+
+  #list2-2 {
+    left: 20.5%;
+    top: 45%;
+  }
+
+  #list2-3 {
+    left: 50.5%;
+    top: 45%;
+  }
+
+  #page3 ol {
+    top: 25%;
+    width: 85%;
+    height: 75%;
+    left: 15%;
+    display: block;
+  }
+
+  #page3 ol a {
+    width: 40%;
+    height: 35%;
+    line-height: 2;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5%;
+  }
+
+  #list3-1 a {
+    top: 10%;
+  }
+
+  #list3-2 a {
+    top: 55%;
+  }
+  
+  ol a {
+    border-width: calc(var(--wpx)/400);
+  }
+  
+  ol a .chapter-num {
+    font-size: calc(var(--wpx)/45);
+  }
+  
+  ol a .chapter-title {
+    font-size: calc(var(--wpx)/60);
+  }
+  
+  ol a .date {
+    font-size: calc(var(--wpx)/70);
   }
 }
