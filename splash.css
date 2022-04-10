@@ -187,7 +187,7 @@ h1 {
   left: 21%;
   top: 25%;
   opacity: 0;
-  animation: fade-in 2s 7s ease-in forwards;
+  animation: fade-in 2s 6s ease-in forwards;
 }
 
 /* NAVIGATION ------------------------------------------------ */
@@ -202,7 +202,7 @@ h1 {
   top: 36%;
   left: 52%;
   opacity: 0;
-  animation: fade-in 2s 8.5s ease-in forwards;
+  animation: fade-in 2s 7.5s ease-in forwards;
 }
 
 .arrow-link svg {
@@ -224,6 +224,10 @@ h1 {
 .arrow-link:hover path, .arrow-link:focus path {
   fill: red;
 }
+
+
+
+
 
 /* LINES ----------------------------------------------- */
 .line {

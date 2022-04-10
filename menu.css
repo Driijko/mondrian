@@ -1,0 +1,313 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+  display: block;
+}
+a:focus {
+	outline: none;
+}
+
+/* CSS TOOLS //////////////////////////////////////////// */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+  -ms-overflow-style: none;
+  overflow: hidden;
+  overflow: -moz-scrollbars-none; 
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#fixed-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#msc {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.vp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.ur {
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+}
+
+.abs {
+  position: absolute;
+}
+
+/* CONTENT /////////////////////////////////////////////// */
+#page1 {
+  display: none;
+}
+/* ANIMATIONS -------------------------------------------------- */
+@keyframes fade-in {from{opacity:0;} to{opacity:1;}}
+@keyframes scale-v {
+  from {
+    transform: scaleY(0);
+    opacity: 1;
+  } to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  }
+@keyframes scale-h {
+  from {
+    opacity: 1;
+    transform: scaleX(0);
+  } to {
+    opacity: 1;
+    transform: scaleY(1);
+}}
+
+/* GENERAL ------------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/60);
+  font-family: "Montserrat", sans-serif;
+}
+
+.vp {
+  background-color: black;
+}
+
+.ur {
+  background-color: white;
+}
+
+/* LAYOUT ---------------------------------------------------- */
+/* #page1 {
+  opacity: 0;
+  animation: fade-in 2s 1s ease-out forwards;
+}
+
+#page1 ol {
+  opacity: 0;
+  animation: fade-in 3s 2s ease-out forwards;
+}
+
+#page1 .arrow-link {
+  opacity: 0;
+  animation: fade-in 3s 4s ease-out forwards;
+} */
+
+/* HEADER ------------------------------------------------------ */
+h1 {
+  font-size: calc(var(--wpx)/8);
+  left: 12%;
+  top: 1%;
+}
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/100);
+  /* font-size: calc(var(--wpx)/11); */
+  background-color: white;
+  width: 11%;
+  height: 6%;
+  text-align: center;
+  transition: border-radius 0.5s, background-color 1.4s; 
+  top: 36%;
+  left: 52%;
+  /* opacity: 0;
+  animation: fade-in 2s 7.5s ease-in forwards; */
+}
+
+.arrow-link svg {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-link path {
+  transition: fill 2s;
+}
+
+.arrow-link:hover, .arrow-link:focus {
+  border-radius: 0;
+  background-color: black;
+}
+
+.arrow-link:hover path, .arrow-link:focus path {
+  fill: red;
+}
+
+.bottom {
+  top: 90%;
+  left: 45%;
+}
+
+.top {
+  top: 3%;
+  left: 45%;
+}
+
+/* LIST ---------------------------------------------------- */
+ol {
+  width: 100%;
+  height: 70%;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}  
+
+li {
+  width: 80%;
+}
+
+ol a{
+  border-top: calc(var(--wpx)/200) dotted black;
+  border-radius: calc(var(--wpx)/30);
+  border-bottom: calc(var(--wpx)/200) dotted black;
+  line-height: 2;
+  text-align: center;
+  transition: background-color 1s, border-color 2s, color 3s;
+}
+
+ol a .chapter-num {
+  font-weight: 700;
+  font-size: calc(var(--wpx)/15);
+}
+
+ol a .chapter-title {
+  font-weight: 600;
+  font-size: calc(var(--wpx)/22);
+}
+
+ol a .date {
+  font-weight: 500;
+  font-size: calc(var(--wpx)/25);
+  font-style: italic;
+}
+
+#page3 ol {
+  height: 50%;
+  justify-content:space-evenly;
+}
+
+#page3 ol a {
+  padding-bottom: 5%;
+}
+
+ol a:hover, ol a:focus {
+  background-color: hsl(180, 100%, 93%);
+  border-color: hsl(180, 100%, 80%);
+  color: hsl(220, 80%, 40%);
+}
+
+/* LINES ----------------------------------------------- */
+.line {
+  background-color: black;
+  opacity: 0;
+}
+
+/* RECS ------------------------------------------------- */
+.rec {
+  opacity: 0;
+}
+
+/* LANDSCAPE ////////////////////////////////////////////// */
+@media only screen and (orientation: landscape) {
+  /* CSS TOOLS ------------------------------------------- */
+  .desktop-abs {
+    position: absolute;
+  }
+
+  /* GENERAL ---------------------------------------------- */
+  :root {
+    --l: calc(var(--wpx)/150);
+  }
+
+  /* NAVIGATION ------------------------------------------- */
+  .arrow-link {
+    border-width: calc(var(--wpx)/300);
+    width: 6%;
+    height: 9%;
+    top: 50%;
+    left: 48%;
+    animation: fade-in 3s 12s forwards ease-in;
+  }
+}
