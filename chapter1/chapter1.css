@@ -1,0 +1,1120 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+  display: block;
+}
+a:focus {
+	outline: none;
+}
+
+/* CSS TOOLS //////////////////////////////////////////// */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+  -ms-overflow-style: none;
+  overflow: hidden;
+  overflow: -moz-scrollbars-none; 
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#fixed-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#msc {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.vp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.ur {
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+}
+
+.cv2 {
+  width: 100%;
+  height: 200%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi2 {
+  width: 100%;
+  height: 50%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv3 {
+  width: 100%;
+  height: 300%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi3 {
+  width: 100%;
+  height: 33.3333%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.abs {
+  position: absolute;
+}
+
+.desktop {
+  display: none;
+}
+
+i {
+  font-style: italic;
+}
+
+/* CONTENT /////////////////////////////////////////////////// */
+/* ANIMATIONS --------------------------------------------- */
+@keyframes fade-in {from{opacity:0;} to{opacity:1;}}
+@keyframes fade-out {from{opacity:1;} to{opacity:0;}}
+@keyframes scale-v {
+  from {
+    transform: scaleY(0);
+    opacity: 1;
+  } to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-h {
+  from {
+    opacity: 1;
+    transform: scaleX(0);
+  } to {
+    opacity: 1;
+    transform: scaleY(1);
+}}
+
+/* GENERAL ------------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/60);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* FIXED LAYER ////////////////////////////////////////// */
+* {
+  animation: none !important;
+  opacity: 1 !important;
+}
+#fixed-layer {
+  background-color: black;
+}
+
+#fixed-layer .ur {
+  background-color: white;
+}
+
+/* LINES ------------------------------------------ */
+.line {
+  background-color: black;
+  opacity: 0;
+}
+
+#f-line1 {
+  width: var(--l);
+  height: 100%;
+  animation: scale-v 2s 2s ease-in-out forwards;
+  left: 90%;
+}
+
+#f-line2 {
+  height: var(--l);
+  width: 100%;
+  animation: scale-h 3s 1s forwards ease-in-out;
+  top: 5%;
+}
+
+#f-line3 {
+  height: var(--l);
+  width: 100%;
+  animation: scale-h 3s 1s forwards ease-in-out;
+  top: 92%;
+}
+
+#f-line4 {
+  width: 90%;
+  animation: f-line4 2.5s 1s forwards ease-out;
+  height: var(--l);
+  top: 95%;
+}
+
+/* RECS ------------------------------------------------- */
+.rec {
+  opacity: 0;
+}
+
+#f-rec1 {
+  animation: fade-in 2s 4s ease-out forwards;
+  background-color: yellow;
+  width: 90%;
+  height: 5%;
+}
+
+#f-rec2 {
+  animation: fade-in 2s 4.5s ease-out forwards;
+  background-color: red;
+  width: 10%;
+  height: 87%;
+  top: 5%;
+  left: 90%;
+}
+
+#f-rec3 {
+  animation: fade-in 2s 5s ease-out forwards;
+  background-color: red;
+  height: 3%;
+  width: 90%;
+  top: 92%;
+}
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/100);
+  background-color: white;
+  width: 11%;
+  height: 6%;
+  text-align: center;
+  transition: border-radius 0.5s, background-color 1.4s; 
+  top: 36%;
+  left: 52%;
+}
+
+.arrow-link svg {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-link path {
+  transition: fill 2s;
+}
+
+.arrow-link:focus-visible {
+  border-radius: 0;
+  background-color: black;
+}
+
+.arrow-link:focus-visible path {
+  fill: red;
+}
+
+@media (hover:hover) {
+  .arrow-link:hover {
+    border-radius: 0;
+    background-color: black;
+  }
+  
+  .arrow-link:hover path {
+    fill: red;
+  } 
+}
+
+.arrow-link {
+  top: 91%;
+  left: 46%;
+}
+
+/* PAGES ////////////////////////////////////////////////// */
+/* HEADER ----------------------------------- */
+header {
+  opacity: 0;
+  animation: fade-in 4s 6s ease-in forwards;
+}
+
+h2 {
+  font-size: calc(var(--wpx)/7);
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  top: 20%;
+  left: 2%;
+}
+
+h2 .chapter-num {
+  font-weight: 500;
+  font-size: calc(var(--wpx)/5);
+}
+
+h2 .date {
+  font-weight: 400;
+  font-size: calc(var(--wpx)/10);
+  font-style: italic;
+}
+
+header .arrow-link {
+  opacity: 0;
+  animation: fade-in 2s 8s ease-in forwards;
+  top: 75%;
+  left: 40%;
+}
+
+/* TEXT ---------------------------------------------------- */
+p {
+  line-height: 2;
+  font-size: calc(var(--wpx)/22);
+  padding: 5%;
+  font-weight: 500;
+  width: 90%;
+}
+
+
+#p1, #p2, #p3 {
+  border-top: var(--l) solid black;
+  border-bottom: var(--l) solid black;
+  top: 10%;
+}
+
+#p4, #p5, #p7 {
+  top: 6%;
+}
+
+#p6 {
+  top: 20%;
+}
+
+#p7, #p8, #p9 {
+  top: 5%;
+}
+
+#p8 {
+  text-align: center;
+}
+
+#p10 {
+  border-top: var(--l) solid black;
+  border-bottom: var(--l) solid black;
+  top: 20%;
+  background-color: white;
+}
+
+#p11, #p12 {
+  top: 7%;
+}
+
+/* IMAGES & FIGURES -------------------------------------------- */
+img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+figure {
+  background-color: black;
+  width: 100%;
+}
+
+figcaption {
+  color: white;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 200;
+  font-size: calc(var(--wpx)/25);
+  width: 100.2%;
+  left: -0.1%;
+}
+
+/* IMAGES AND FIGURES -------------------------------------- */
+
+#figure1 {
+  height: 55%;
+  top: 32%;
+}
+
+#figure1 img {
+  width: 90%;
+  left: 5%;
+  top: 5%;
+}
+
+#figure1 figcaption, #figure2 figcaption {
+  left: 10%;
+  width: 80%;
+}
+
+#figure1 figcaption {
+  top: 82%;
+}
+
+#figure2 figcaption {
+  top: 80%;
+}
+
+#figure2 {
+  height: 52%;
+  top: 37%;
+}
+
+#figure2 img {
+  width: 90%;
+  left: 5%;
+  top: 10%;
+}
+
+#figure3 {
+  width: 90.2%;
+  height: 87.1%;
+  top: 5%;
+}
+
+#figure3 img {
+  width: 90%;
+  left: 6%;
+  top: 20%;
+}
+
+#figure3 figcaption {
+  top: 80%;
+  left: 1%;
+}
+
+#figure4 {
+  height: 55.1%;
+  top: 37%;
+}
+
+#figure5 {
+  height: 50%;
+  top: 42.1%;
+}
+
+#figure4 img, #figure5 img, #figure6 img {
+  width: 90%;
+  left: 5%;
+  top: 28%; /*25*/
+}
+
+#figure4 figcaption, #figure5 figcaption, #figure6 figcaption, 
+#figure7 figcaption, #figure8 figcaption, #figure9 figcaption,
+#figure10 figcaption, #figure11 figcaption, #figure12 figcaption,
+#figure13 figcaption, #figure14 figcaption, #figure15 figcaption,
+#figure16 figcaption {
+  top: 5%;
+  left: 5%;
+  text-align: left;
+}
+
+#figure4 figcaption, #figure8 figcaption {
+  top: 6%;
+}
+
+#figure7 figcaption {
+  top: 8%;
+}
+
+#figure6 {
+  height: 55%;
+  top: 32%;
+}
+
+#figure6 img {
+  width: 70%;
+  top: 21%;
+  left: 15%;
+}
+
+#figure7 {
+  height: 70%;
+  top: 15%;
+}
+
+#figure7 img {
+  width: 90%;
+  left: 5%;
+  top: 27%;
+}
+
+#figure8 {
+  top: 30%;
+  height: 60%;
+}
+#figure8 img, #figure15 img {
+  width: 90%;
+  left: 5%;
+  top: 25%;
+}
+
+#figure9 {
+  width: 90%;
+  height: 75%;
+  top: 15%;
+}
+
+#figure9 img {
+  width: 74%;
+  left: 13%;
+  top: 18%;
+}
+
+#figure10 {
+  top: 20%;
+  height: 70%;
+}
+
+#figure10 img {
+  width: 90%;
+  top: 27%;
+  left: 5%;
+}
+
+#figure11, #figure12, #figure14, #figure16 {
+  top: 8%;
+  width: 100%;
+  height: 81%;
+}
+
+#figure11 img {
+  top: 30%;
+}
+
+#figure12 img {
+  top: 25%;
+}
+
+#figure13 {
+  top: 29%;
+  height: 60%;
+}
+
+#figure13 img {
+  width: 90%;
+  left: 5%;
+  top: 25%;
+}
+
+#figure14 img, #figure16 img {
+  width: 90%;
+  left: 5%;
+  top: 30%;
+}
+
+#figure15 {
+  top: 25%;
+  height: 64%;
+}
+
+
+/* RECS ----------------------------------------------- */
+#p14-rec1 {
+  width: 90%;
+  height: 86.1%;
+  background-color: blue;
+  top: 5.9%;
+
+}
+
+@media only screen and (orientation: landscape) {
+  /* CSS TOOLS //////////////////////////////////////////// */
+  .cv2, .cv3 {
+    height: 100%;
+    position: relative;
+  }
+
+  .cvi2, .cvi3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .cvi2 a, .cvi3 a {
+    pointer-events: initial;
+  }
+
+  .desktop-abs {
+    position: absolute;
+  }
+
+  .desktop {
+    display: initial;
+  }
+
+  /* GENERAL ------------------------------------------- */
+  :root {
+    --l: calc(var(--wpx)/150);
+  }
+
+  /* FIXED-LAYER ///////////////////////////////////////// */
+  /* LINES ------------------------------------------ */
+  #f-line1 {
+    animation: scale-v 3s 1s ease-in-out forwards;
+    left: 10%;
+  }
+
+  #f-line2 {
+    top: 40%;
+  }
+
+  #f-line3 {
+    top: 50%;
+  }
+
+  #f-line4 {
+    animation: scale-h 2s 3.6s ease-in-out forwards;
+    width:50%;
+    left: 17%;
+  }
+
+  #f-line5 {
+    width: var(--l);
+    height: 100%;
+    animation: scale-v 3s 1s ease-in-out forwards;
+    left: 17%;
+  }
+
+  #f-line6 {
+    height: var(--l);
+    width: 50%;
+    animation: scale-h 2s 3.6s ease-in-out forwards;
+    top: 80%;
+    left: 17%;
+  }
+
+  #f-line7 {
+    width: var(--l);
+    height: 50%;
+    animation: scale-v 2s 3.6s ease-in-out forwards;
+    left: 63%;
+    top: 50%;
+  }
+
+  #f-line8 {
+    width: var(--l);
+    height: 50%;
+    animation: scale-v 2s 3.6s ease-in-out forwards;
+    left: 67%;
+    top: 50%;
+  }
+
+  /* RECS --------------------------------------------- */
+  #f-rec1 {
+    background-color: blue;
+    width: 7%;
+    height: 10%;
+    left: 10%;
+    top: 40%;
+  }
+
+  #f-rec2, #f-rec3 {
+    display: none;
+  }
+
+  /* NAVIGATION ------------------------------------------- */
+  .arrow-link {
+    border-width: calc(var(--wpx)/300);
+    width: 6%;
+    height: 9%;
+  }
+
+  header .arrow-link {
+    top: 83.5%;
+    left: 39%;
+  }
+
+  #page2 .arrow-link {
+    left: 81%;
+    top: 85%;
+  }
+
+  #page3 .arrow-link, #page8 .arrow-link, #page15 .arrow-link,
+  #page17 .arrow-link, #page19 .arrow-link {
+    display: none;
+  }
+
+  #page4 .arrow-link {
+    left: 62.4%;
+    top: 88%;
+  }
+
+  #page5 .arrow-link {
+    left: 83%;
+    top: 85%;   
+  }
+
+  #page6 .arrow-link {
+    left: 86%;
+    top: 85%;   
+  }
+
+  #page7 .arrow-link {
+    left: 85%;
+    top: 85%;   
+  }
+
+  #page9 .arrow-link {
+    left: 82%;
+    top: 80%;
+  }
+
+  #page10 .arrow-link {
+    top: 87%;
+    left: 89%;
+  }
+
+  #page11 .arrow-link, #page12 .arrow-link, #page13 .arrow-link {
+    top: 85%;
+    left: 83%;
+  }
+
+  #page14 .arrow-link {
+    left: 81%;
+    top: 75%;
+  }
+
+  #page16 .arrow-link {
+    left: 35%;
+    top: 83.5%;
+  }
+
+  #page18 .arrow-link, #page20 .arrow-link {
+    left: 90%;
+    top: 85%;
+  }
+
+  /* HEADER ------------------------------------------- */
+  h2 {
+    font-size: calc(var(--wpx)/15);
+    left: 17%;
+    top: 0;
+    height: 40%;
+    width: 83%;
+  }
+
+  h2 .chapter-num {
+    font-size: calc(var(--wpx)/10);
+    left: 5%;
+    top: 15%;
+  }
+
+  h2 .title {
+    left: 15%;
+    top: 30%;
+  }
+
+  h2 .date {
+    font-size: calc(var(--wpx)/20);
+    left: 60%;
+    top: 70%;
+  }
+
+  /* PARAGRAPHS --------------------------------------------- */
+  p {
+    left: 17%;
+    font-size: calc(var(--wpx)/50);
+  }
+
+  #p1, #p2, #p3 {
+    border: none;
+  }
+
+  #p1 {
+    width: 63%;
+    top: 5%;
+  }
+
+  #p2 {
+    width: 80%;
+    top: 0%;
+  }
+
+  #p3 {
+    width: 65%;
+    top: 5%;
+  }
+
+  #p4 {
+    top: 2%;
+    width: 80%;
+  }
+
+  #p5 {
+    top: 4%;
+    width: 70%;
+  }
+
+  #p6 {
+    padding: 0;
+    left: 22%;
+    top: 4%;
+    width: 70%;
+  }
+
+  #p7 {
+    width: 70%;
+  }
+
+  #p8 {
+    padding: 1%;
+    top: 0%;
+    width: 83%;
+  }
+
+  #p9 {
+    top: 9%;
+  }
+
+  #p10 {
+    padding-top: 8%;
+    width: 49.5%;
+    height: 80%;
+    top: 10%;
+    left: 17.6%;
+  }
+
+  #p11, #p12 {
+    padding: 0%;
+    text-align: center;
+    width: 83%;
+    left: 17%;
+    top: 42%;
+  }
+
+
+
+  /* IMAGES & FIGURES ------------------------------------------- */
+  figcaption {
+    padding: calc(var(--wpx)/100);
+    font-size: calc(var(--wpx)/60)
+  }
+
+  #figure1, #figure4, #figure5, #figure6, #figure8, #figure10 {
+    width: 83.1%;
+    height: 60%;
+    left: 17%;
+    top: 40%;
+  }
+
+  #figure1 img {
+    width: 65%;
+    height: 90%;
+    left: 0%;
+  }
+
+  #figure1 figcaption {
+    width: 30%;
+    left: 65%;
+    top: 32%;
+  }
+
+  #figure2 {
+    left:-0.1%;
+    width: 63.7%;
+    top: 30%;
+    height: 60%;
+  }
+
+  #figure2 img {
+    height: 70%;
+  }
+
+  #figure2 figcaption {
+    width: 100%;
+    left: 0;
+    top: 82%;
+  }
+
+  #figure2 figcaption br {
+    display: none;
+  }
+
+  #figure3 {
+    width: 33.1%;
+    left: 67%;
+    height: 60%;
+    top: 30%;
+  }
+
+  #figure3 img {
+    top: 5%;
+  }
+
+  #figure3 figcaption {
+    width: 100%;
+    left: 0;
+    top: 85%;
+  }
+
+  #figure4 img {
+    height: 90%;
+    top: 5%;
+    left: -12%;
+  }
+
+  #figure4 figcaption {
+    width: 25%;
+    left: 74%;
+    top: 30%;
+  }
+
+  #figure5 img {
+    height: 90%;
+    top: 5%;
+    left: -7%;
+  }
+
+  #figure5 figcaption {
+    width: 25%;
+    left: 80%;
+    top: 30%;
+  }
+
+  #figure6 img {
+    height: 90%;
+    top: 5%;
+    left: 0%;
+  }
+
+  #figure6 figcaption {
+    width: 25%;
+    left: 72%;
+    top: 35%;
+  }
+
+  #figure7 {
+    width: 83.1%;
+    height: 100%;
+    left: 17%;
+    top: 0%;
+  }
+
+  #figure7 img {
+    width: 70%;
+    top: 10%;
+    left: 5%;
+  }
+
+  #figure7 figcaption {
+    width: 100%;
+    left: 79%;
+    top: 40%;
+  }
+
+  #figure8 img {
+    width: 50%;
+    top: 6%;
+    left: 10%;
+  }
+
+  #figure8 figcaption {
+    width: 100%;
+    left: 70%;
+    top: 40%;
+  }
+
+  #figure9 {
+    left: 17%;
+    top: 10%;
+    height: 90%;
+  }
+
+  #figure9 img {
+    width: 35%;
+    top: 7%;
+  }
+
+  #figure9 figcaption {
+    left: 65%;
+    top: 40%;
+  }
+
+  #figure10 img {
+    width: 50%;
+    top: 6%;
+    left: 10%;
+  }
+
+  #figure10 figcaption {
+    left: 65%;
+    top: 30%;
+  }
+
+  #figure11 {
+    left: -0.1%;
+    width: 45.1%;
+    top: 0%;
+  }
+
+  #figure11 img, #figure12 img {
+    width: 90%;
+    left: 5%;
+  }
+
+  #figure11 figcaption {
+    top: 10%;
+  }
+
+  #figure12 {
+    width: 45.1%;
+    left: 55%;
+    top: 19%;
+  }
+
+  #figure13, #figure15 {
+    left: -0.1%;
+    width: 100.2%;
+    top: 0%;
+    height: 39.5%;
+  }
+
+  #figure13 img {
+    width: 30%;
+    left: 20%;
+    top: 9%;
+  }
+
+  #figure13 figcaption, #figure15 figcaption {
+    left: 55%;
+    top: 30%;
+  }
+
+  #figure14, #figure16 {
+    height: 46%;
+    top: 51.5%;
+    left: -0.1%;
+    width: 100.2%;
+  }
+
+  #figure14 img {
+    width: 33%;
+    top: 5%;
+    left: 19%;
+  }
+
+  #figure14 figcaption, #figure16 figcaption {
+    left: 55%;
+    top: 30%;
+  }
+
+  #figure15 img {
+    width: 27%;
+    left: 20%;
+    top: 7%;
+  }
+
+  #figure16 img {
+    width: 36%;
+    top: 5%;
+    left: 12%;
+  }
+
+  /* LINES & RECS -------------------------------------------------- */
+  #p14-line1 {
+    width: var(--l);
+    background-color: black;
+    height: 100%;
+    left: 67%;
+  }
+
+  #p14-rec1 {
+    width: 33.1%;
+    left: 67%;
+    height: 40%;
+    top: 0%;
+  }
+
+  #p14-rec2 {
+    width: 32.45%;
+    left: 67.6%;
+    height:50%;
+    top: 51%;
+    background-color: yellow;
+  }
+
+  #p16-line1 {
+    width: var(--l);
+    background-color: black;
+    height: 100%;
+    left: 54.9%;
+  }
+}

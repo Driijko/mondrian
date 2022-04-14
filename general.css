@@ -1,0 +1,189 @@
+/* CONTENT /////////////////////////////////////////////////// */
+/* ANIMATIONS --------------------------------------------- */
+@keyframes fade-in {from{opacity:0;} to{opacity:1;}}
+@keyframes fade-out {from{opacity:1;} to{opacity:0;}}
+@keyframes scale-v {
+  from {
+    transform: scaleY(0);
+    opacity: 1;
+  } to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-h {
+  from {
+    opacity: 1;
+    transform: scaleX(0);
+  } to {
+    opacity: 1;
+    transform: scaleY(1);
+}}
+
+/* GENERAL ------------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/60);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* FIXED LAYER ////////////////////////////////////////// */
+#fixed-layer {
+  background-color: black;
+}
+
+#fixed-layer .ur {
+  background-color: white;
+}
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/100);
+  background-color: white;
+  width: 11%;
+  height: 6%;
+  transition: border-radius 0.5s, background-color 1.4s; 
+}
+
+.arrow-link svg {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-link path {
+  transition: fill 2s;
+}
+
+.arrow-link:focus-visible {
+  border-radius: 0;
+  background-color: black;
+}
+
+.arrow-link:focus-visible path {
+  fill: red;
+}
+
+@media (hover:hover) {
+  .arrow-link:hover {
+    border-radius: 0;
+    background-color: black;
+  }
+  
+  .arrow-link:hover path {
+    fill: red;
+  } 
+}
+
+.menu-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/30);
+  font-weight: 500;
+  font-size: calc(var(--wpx)/19);
+  padding: 1%;
+  line-height: 3;
+}
+
+.menu-link:hover, .menu-link:focus {
+  border-radius: 0;
+  background-color: black;
+  color: red;
+}
+
+/* HEADERS ----------------------------------- */
+h2 {
+  font-size: calc(var(--wpx)/7);
+  line-height: 1.5;
+}
+
+h2 .chapter-num {
+  font-weight: 500;
+  font-size: calc(var(--wpx)/5);
+}
+
+h2 .date {
+  font-weight: 400;
+  font-size: calc(var(--wpx)/10);
+  font-style: italic;
+}
+
+/* PARAGRAPHS -------------------------------------------------- */
+p {
+  line-height: 2;
+  font-size: calc(var(--wpx)/22);
+  padding: 5%;
+  font-weight: 500;
+}
+
+/* IMAGES & FIGURES ------------------------------------------- */
+img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+figure {
+  background-color: black;
+}
+
+figcaption {
+  color: white;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 200;
+  font-size: calc(var(--wpx)/25);
+}
+
+.painting {
+  text-align: left;
+}
+
+/* LINES ----------------------------------------------- */
+.line {
+  background-color: black;
+  opacity: 0;
+}
+
+/* RECS ------------------------------------------------- */
+.rec {
+  opacity: 0;
+}
+
+/* LANDSCAPE ////////////////////////////////////////////// */
+@media only screen and (orientation: landscape) {
+  /* CSS TOOLS ------------------------------------------- */
+  .desktop-abs {
+    position: absolute;
+  }
+
+  /* GENERAL ---------------------------------------------- */
+  :root {
+    --l: calc(var(--wpx)/150);
+  }
+
+  /* NAVIGATION ------------------------------------------- */
+  .arrow-link {
+    border-width: calc(var(--wpx)/300);
+    width: 6%;
+    height: 9%;
+  }
+
+  /* HEADERS ------------------------------------------- */
+  h2 {
+    font-size: calc(var(--w)/15);
+  }
+
+  h2 .chapter-num {
+    font-size: calc(var(--w)/10);
+  }
+
+  h2 .date {
+    font-size: calc(var(--w)/20);
+  }
+
+  /* IMAGES & FIGURES ------------------------------  */
+  figcaption {
+    padding: calc(var(--w)/100);
+    font-size: calc(var(--w)/60)
+  }
+}
