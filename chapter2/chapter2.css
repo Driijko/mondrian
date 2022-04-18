@@ -1,0 +1,1632 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+  display: block;
+}
+a:focus {
+	outline: none;
+}
+
+/* CSS TOOLS /////////////////////////////////////////////// */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+  -ms-overflow-style: none;
+  overflow: hidden;
+  overflow: -moz-scrollbars-none; 
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#fixed-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#msc {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.vp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.cv2 {
+  width: 100%;
+  height: 200%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi2 {
+  width: 100%;
+  height: 50%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ur {
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+}
+
+.abs {
+  position: absolute;
+}
+
+i {
+  font-style: italic;
+  padding-right: 0.5ch;
+}
+
+.desktop {
+  display: none;
+}
+
+/* CONTENT /////////////////////////////////////////////////// */
+/* ANIMATIONS --------------------------------------------- */
+@keyframes fade-in {from{opacity:0;} to{opacity:1;}}
+@keyframes fade-out {from{opacity:1;} to{opacity:0;}}
+@keyframes scale-v {
+  from {
+    transform: scaleY(0);
+    opacity: 1;
+  } to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-h {
+  from {
+    opacity: 1;
+    transform: scaleX(0);
+  } to {
+    opacity: 1;
+    transform: scaleY(1);
+}}
+
+/* GENERAL ------------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/60);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* NAVIGATION ---------------------------------------------- */
+.arrow-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/100);
+  background-color: white;
+  width: 11%;
+  height: 6%;
+  transition: border-radius 0.5s, background-color 1.4s; 
+  left: 45.3%;
+  top: 92.8%;
+}
+
+.arrow-link svg {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-link path {
+  transition: fill 2s;
+}
+
+.arrow-link:focus-visible {
+  border-radius: 0;
+  background-color: black;
+}
+
+.arrow-link:focus-visible path {
+  fill: red;
+}
+
+@media (hover:hover) {
+  .arrow-link:hover {
+    border-radius: 0;
+    background-color: black;
+  }
+  
+  .arrow-link:hover path {
+    fill: red;
+  } 
+}
+
+/* PARAGRAPHS -------------------------------------------------- */
+p {
+  line-height: 2;
+  font-size: calc(var(--wpx)/22);
+  padding: 5%;
+  font-weight: 500;
+  background-color: white;
+  border-top: var(--l) solid black;  
+  border-bottom: var(--l) solid black;
+}
+
+/* IMAGES & FIGURES ------------------------------------------- */
+img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+figure {
+  background-color: black;
+  width: 100.2%;
+  left: -0.1%;
+}
+
+figure img {
+  width: 90%;
+  left: 5%;
+}
+
+figcaption {
+  color: white;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 200;
+  font-size: calc(var(--wpx)/25);
+}
+
+.painting {
+  text-align: left;
+}
+
+/* LINES ----------------------------------------------- */
+.line {
+  background-color: black;
+  opacity: 0;
+}
+
+/* RECS ------------------------------------------------- */
+.rec {
+  opacity: 0;
+}
+
+/* FIXED LAYER ////////////////////////////////////////// */
+#fixed-layer {
+  background-color: black;
+}
+
+#fixed-layer .ur {
+  background-color: white;
+}
+
+#f-line1 {
+  width: var(--l);
+  height: 100%;
+  left: 50%;
+  animation: scale-v 3s forwards ease-in-out;
+}
+
+#f-line2 {
+  height: var(--l);
+  width: 50%;
+  left: 50%;
+  top: 30%;
+  animation: scale-h 3s forwards ease-in-out;
+}
+
+#f-line3 {
+  height: var(--l);
+  width: 50%;
+  left: 50%;
+  top: 70%;
+  animation: scale-h 3s forwards ease-in-out;
+}
+
+#f-rec1 {
+  background-color: yellow;
+  width: 50%;
+  height: 100%;
+  animation: fade-in 2s 3s ease-out forwards;
+}
+
+/* HEADER ------------------------------------------------- */
+h2 {
+  font-size: calc(var(--wpx)/7);
+  line-height: 1.5;
+  width: 100%;
+  height: 100%;
+}
+
+h2 span {
+  display: block;
+}
+
+h2 .chapter-num {
+  left: 25%;
+  top: 5%;
+  opacity: 0;
+  font-size: calc(var(--wpx)/4);
+  animation: fade-in 2s 4s ease-out forwards;
+  font-weight: 500;
+  font-size: calc(var(--wpx)/5);
+}
+
+h2 .title {
+  width: 100%;
+  left: 0%;
+  height: 40%;
+  top: 30%;
+  font-size: calc(var(--wpx)/10);
+  opacity: 0;
+  font-weight: 500;
+  animation: fade-in 2s 5s ease-out forwards;
+}
+
+h2 #title1 {
+  left: 9.9%;
+}
+
+h2 #title2 {
+  left: 40%;
+  top: 40%;
+}
+
+h2 #title3 {
+  top: 80%;
+  left: 1%;
+}
+
+#text-color {
+  display: inline;
+  color: hsl(0, 0%, 80%);
+}
+
+h2 .date {
+  line-height: 1;
+  text-align: center;
+  top: 77%;
+  left: -2%;
+  width: 50%;
+  opacity: 0;
+  animation: fade-in 2s 6s ease-out forwards;
+  font-weight: 400;
+  font-size: calc(var(--wpx)/10);
+  font-style: italic;
+}
+
+header .arrow-link {
+  left: 70%;
+  top: 82%;
+  opacity: 0;
+  animation: fade-in 2s 8s ease-out forwards;
+}
+
+/* INSERTED PAGE 1 ------------------------------------------ */
+#i-p1 {
+  top: 2%;
+}
+
+/* PAGE 2 --------------------------------------------------- */
+#p1 {
+  top: 8%;
+}
+
+#figure1 {
+  height: 60%;
+  top: 32%;
+}
+
+#figure1 img {
+  height: 65%;
+  top: 5%;
+  left: 4%;
+}
+
+#figure1 figcaption {
+  width: 80%;
+  top: 75%;
+  left: 10%;
+}
+
+/* PAGE3 ------------------------------------------------------- */
+#p2 {
+  top: 7%;
+}
+
+#figure2 {
+  top: 50%;
+  height: 42%;
+}
+
+#figure2 img {
+  top: 5%;
+}
+
+#figure2 figcaption {
+  top: 84%;
+  left: 17%;
+}
+
+/* PAGE 4 ---------------------------------------------------------- */
+#figure3 {
+  top: 8%;
+  height: 80%;
+}
+
+#figure3 img {
+  left: 4%;
+  top: 5%;
+  height: 70%;
+}
+
+#figure3 figcaption {
+  top: 78%;
+  left: 7%;
+  width: 85%;
+}
+
+/* PAGE 5 ------------------------------------------------------------ */
+#figure4 {
+  top: 3%;
+  height: 89%;
+}
+
+#figure4 img {
+  top: 3%;
+  height: 70%;
+}
+
+#figure4 figcaption {
+  top: 76%;
+  left: 10%;
+  width: 80%;
+}
+
+/* PAGE 6 ----------------------------------------------------------- */
+#p3 {
+  padding: 15% 5%; 
+  top: 18%;
+}
+
+/* PAGE 7 ----------------------------------------------------------- */
+#p4, #p5 {
+  top: 6%;
+}
+
+#figure5, #figure6 {
+  height: 60%;
+  top: 30%;
+}
+
+#figure5 img, #figure6 img {
+  top: 10%;
+}
+
+#figure5 figcaption {
+  top: 80%;
+  left: 30%;
+}
+
+/* PAGE 8 ---------------------------------------------------------- */
+#figure6 figcaption {
+  top: 78%;
+  left: 24%;
+}
+
+/* PAGE 9 --------------------------------------------------------- */
+#p6, #p7, #p8, #p9 {
+  width: 100%;
+  top: 2%;
+}
+
+#figure7, #figure8, #figure9, #figure10 {
+  top: 21%;
+  height: 71%;
+}
+
+#figure7 img, #figure8 img, #figure9 img, #figure10 img {
+  height: 75%;
+  top: 5%;
+}
+
+#figure7 figcaption {
+  top: 84%;
+  left: 24%;
+}
+
+/* PAGE 10 ----------------------------------------------------- */
+#figure8 figcaption {
+  top: 78%;
+  left: 24%;
+}
+
+/* PAGE 11 ---------------------------------------------------- */
+#figure9 figcaption, #figure10 figcaption {
+  top: 84%;
+  left: 30%;
+}
+
+/* PAGE 12 ---------------------------------------------------- */
+#p10 {
+  width: 100%;
+  padding: 21% 10%; 
+  top: 20%; /*30*/
+}
+
+#p13-rec1, #p13-rec2 {
+  left: 51.6%;
+  background-color: red;
+  width: 48.4%;
+  height: 10%;
+  border-top: var(--l) solid black;
+  border-bottom: var(--l) solid black;
+}
+
+#p13-rec1 {
+  top: 2%;
+}
+
+#p13-rec2 {
+  top: 70%;
+}
+
+#figure11, #figure13 {
+  height: 40.1%;
+}
+
+#figure12, #figure14 {
+  top: 40%;
+  height: 60%;
+}
+
+#figure11 img {
+  top: 5%;
+}
+
+#figure11 figcaption {
+  top: 81%;
+  left: 17%;
+}
+
+#figure12 img {
+  top: 2%;
+  width: 85%;
+  left: 7.5%;
+}
+
+#figure12 figcaption {
+  top: 70%;
+  left: 30%;
+}
+
+/* PAGE 15 ---------------------------------------------------- */
+#figure13 img {
+  top: 5%;
+  height: 80%;
+}
+
+#figure13 figcaption {
+  top: 91%;
+  left: 14%;
+}
+
+#figure14 img {
+  top: 10%;
+  height: 60%;
+}
+
+#figure14 figcaption {
+  top: 74%;
+  left: 21%;
+}
+
+/* PAGE 16 ------------------------------------------------------- */
+#p11 {
+  top: 3%;
+}
+
+#figure15 {
+  width: 100%;
+  height: 55%;
+  top: 35%;
+}
+
+#figure15 img {
+  top: 3%;
+}
+
+#figure15 figcaption {
+  top: 82%;
+  width: 100%;
+}
+
+/* PAGE 17 -------------------------------------------------------- */
+#p12 {
+  width: 100%;
+  top: 5%;
+}
+
+#figure16 {
+  top: 22%;
+  height: 69%;
+}
+
+#figure16 img {
+  width: 86%;
+  left: 7%;
+  top: 5%;
+}
+
+#figure16 figcaption {
+  width: 100%;
+  top: 83%;
+}
+
+/* PAGE 18 -------------------------------------------------- */
+#figure17 {
+  top: 5%;
+  height: 85%;
+}
+
+#figure17 img {
+  top: 10%;
+}
+
+#figure17 figcaption {
+  top: 85%;
+  width: 100%;
+}
+
+/* PAGE 19 -------------------------------------------- */
+#figure18, #figure19, #figure21, #figure23, #figure24, #figure25,
+#figure27, #figure28, #figure30, #figure31 {
+  top: 5%;
+  height: 85%;
+}
+
+#figure18 img {
+  top: 4%;
+  left: 9%;
+  width: 82%;
+}
+
+#figure18 figcaption, #figure19 figcaption {
+  top: 88%;
+  width: 100%;
+}
+
+/* PAGE 20 ----------------------------------------------- */
+#figure19 img {
+  width: 70%;
+  left: 15%;
+  top: 4%;
+}
+
+/* PAGE 21 ----------------------------------------------- */
+#p13 {
+  top: 2.5%;
+}
+
+/* PAGE 22 --------------------------------------------- */
+#p14 {
+  top: 3%;
+}
+#figure20 {
+  top: 25%;
+  height: 66%;
+}
+
+#figure20 img {
+  top: 10%;
+}
+
+#figure20 figcaption {
+  width: 100%;
+  top: 75%;
+}
+
+/* PAGE 23 ------------------------------------------- */
+#figure21 img {
+  top: 20%;
+}
+
+#figure21 figcaption {
+  top: 70%;
+  width: 100%;
+}
+
+/* PAGE 24 ------------------------------------------------ */
+#p15, #p16 {
+  width: 100%;
+  top: 4%;
+}
+
+#figure22, #figure26 {
+  top: 20%;
+  height: 71%;
+}
+
+#figure22 img {
+  top: 7%;
+}
+
+#figure22 figcaption {
+  width: 100%;
+  top: 82%;
+}
+
+/* PAGE 25 ---------------------------------------------- */
+#figure23 img {
+  top: 7%;
+}
+
+#figure23 figcaption {
+  top: 84%;
+  width: 100%;
+}
+
+/* PAGE 26 ------------------------------------------------- */
+#figure24 img {
+  top: 5%;
+}
+
+#figure24 figcaption {
+  top: 85%;
+  width: 100%;
+}
+
+/* PAGE 27 ------------------------------------------- */
+#figure25 img {
+  width: 82%;
+  left: 9%;
+  top: 5%;
+}
+
+#figure25 figcaption {
+  top: 88%;
+  width: 100%;
+}
+
+/* PAGE 28 ------------------------------------------------- */
+#figure26 img {
+  width: 84%;
+  left: 8%;
+  top: 5%;
+}
+
+#figure26 figcaption {
+  top: 87%;
+  width: 100%;
+}
+
+/* PAGE 29 ------------------------------------------------- */
+#figure27 img, #figure28 img {
+  top: 5%;
+}
+
+#figure27 figcaption {
+  top: 88%;
+  width: 100%;
+}
+
+#figure28 figcaption {
+  top: 87%;
+  width: 100%;
+}
+
+/* PAGE 31 -------------------------------------------------- */
+#p17 {
+  top: 5%;
+}
+
+#figure29 {
+  top: 38%;
+  height: 53%;
+}
+
+#figure29 img {
+  top: 8%;
+}
+
+#figure29 figcaption {
+  top: 79%;
+  width: 100%;
+}
+
+/* PAGE 32 ------------------------------------------------ */
+#figure30 img {
+  top: 20%;
+}
+
+#figure30 figcaption, #figure31 figcaption {
+  top: 70%;
+  width: 100%;
+}
+
+/* PAGE 33 ------------------------------------------------ */
+#figure31 img {
+  top: 25%;
+}
+
+/* PAGE 34 ------------------------------------------ */
+#p18, #p20 {
+  top: 5%;
+}
+
+#p19 {
+  top: 50%;
+}
+
+/* PAGE 35 -------------------------------------------------- */
+#p21 {
+  top: 45%;
+}
+
+/* PAGE 36 ----------------------------------------------------- */
+#p22 {
+  top: 8%;
+}
+/* FOOTER --------------------------------------------------- */
+.menu-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/30);
+  font-weight: 500;
+  font-size: calc(var(--wpx)/19);
+  padding: 1%;
+  line-height: 3;
+  top: 7%;
+  left: 15%;
+  background-color: red;
+  transition: border-radius 1s, background-color 1.4s, color 2s, border-color 2s; 
+}
+
+.menu-link:hover, .menu-link:focus {
+  border-radius: 0;
+  background-color: black;
+  color: red;
+}
+
+#nav-tag-next {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  top: 73%;
+  left: 1%;
+}
+
+#nav-tag-next span {
+  font-weight: 700;
+}
+
+#chapter-nav-next {
+  background-color: red;
+  top: 83%;
+  left: 70%;
+  transition: border-radius 0.5s, background-color 1.4s, border-color 1.4s; 
+}
+
+#chapter-nav-next path {
+  transition: fill 2s;
+}
+
+#chapter-nav-next:hover, #chapter-nav-next:focus {
+  border-color: black;
+  background-color: black;
+}
+
+#chapter-nav-next:hover path, #chapter-nav-next:focus path {
+  fill: yellow;
+}
+
+#figure32 {
+  top: 25%;
+  height: 46%;
+}
+
+#figure32 img {
+  width: 80%;
+  left: 10%;
+  top: 10%;
+}
+
+#figure32 figcaption {
+  top: 82%;
+  width: 100%;
+}
+
+/* LANDSCAPE ////////////////////////////////////////////// */
+@media only screen and (orientation: landscape) {
+  /* CSS TOOLS ------------------------------------------- */
+  .cv2, .cv3 {
+    height: 100%;
+    position: relative;
+  }
+
+  .cvi2, .cvi3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .cvi2 a, .cvi3 a {
+    pointer-events: initial;
+  }
+  
+  .desktop-abs {
+    position: absolute;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: initial;
+  }
+
+  /* GENERAL ---------------------------------------------- */
+  :root {
+    --l: calc(var(--wpx)/150);
+  }
+
+  /* NAVIGATION ------------------------------------------- */
+  .arrow-link {
+    border-width: calc(var(--wpx)/300);
+    width: 6%;
+    height: 9%;
+    left: 80% !important;
+    top: 76% !important;
+  }
+
+  /* PARAGRAPHS --------------------------------------------- */
+  p {
+    width: 49.4% !important;
+    left: 40.6%;
+    font-size: calc(var(--wpx)/50);
+  }
+
+  /* IMAGES & FIGURES ------------------------------  */
+  figure {
+    height: 90% !important;
+    width: 40.2% !important;
+    left: -0.1% !important;
+    top: 10% !important;
+  }
+
+  figcaption {
+    padding: calc(var(--wpx)/100);
+    font-size: calc(var(--wpx)/60)
+  }
+
+  /* FIXED-LAYER ------------------------------------------------ */
+  #f-line1 {
+    left: 90%;
+  }
+
+  #f-line2 {
+    top: 10%;
+    left: 0;
+    width: 100%;
+  }
+
+  #f-line3 {
+    top: 7%;
+    left: 0;
+    width: 100%;
+  }
+
+  #f-line4 {
+    width: var(--l);
+    height: 100%;
+    left: 95%;
+    animation: scale-v 3s ease-in-out forwards;
+  }
+
+  #f-line5 {
+    width: var(--l);
+    height: 90%;
+    top: 10%;
+    left: 40%;
+    animation: scale-v 3s ease-in-out forwards;
+  }
+
+  #f-line6 {
+    height: var(--l);
+    width: 50%;
+    top: 90%;
+    left: 40%;
+    animation: scale-h 3s ease-in-out forwards;
+  }
+
+  #f-rec1 {
+    height: 80%;
+    width: 50%;
+    left: 40%;
+    top: 10%;
+  }
+
+  #f-rec2 {
+    background-color: red;
+    height: 7%;
+    width: 95%;
+    animation: fade-in 2s 4s ease-out forwards;
+  }
+
+  #f-rec3 {
+    background-color: red;
+    height: 93%;
+    width: 5%;
+    left: 95%;
+    top: 7%;
+    animation: fade-in 2s 5s ease-out forwards;
+  }
+
+  /* HEADER ------------------------------------------- */
+  h2 {
+    width: 90%;
+    height: 80%;
+    left: 0%;
+    top: 10%;
+  }
+
+  h2 .chapter-num {
+    left: 32%;
+    top: 7%;
+    font-size: calc(var(--wpx)/8);
+    animation: fade-in 2s 7s ease-out forwards;
+  }
+
+  h2 .title {
+    font-size: calc(var(--wpx)/25);
+    left: 47%;
+    top: 3%;
+    animation: fade-in 2s 9s ease-out forwards;
+  }
+
+  h2 #title1, h2 #title2, h2 #title3 {
+    left: 0;
+    width: 100%;
+  }
+
+  #text-color {
+    color: black;
+  }
+
+  h2 .date {
+    font-size: calc(var(--wpx)/25);
+    left: 47%;
+    top: 58%;
+    animation: fade-in 2s 9s ease-out forwards;
+  }
+
+  header .arrow-link {
+    animation: fade-in 2s 11s ease-out forwards;
+  }
+
+  /* INSERTED PAGE 1 ---------------------------------------- */
+  #i-p1 {
+    background-color: white;
+    padding-bottom: 10%;
+    height: 81%;
+    width: 100% !important;
+    left: 0%;
+    top: 10%;
+    border-top: var(--l) solid black;
+    border-bottom: var(--l) solid black;
+  }
+
+  /* PAGE 2 ------------------------------------------------- */
+  #p1, #p5, #p10 {
+    top: 30%;
+  }
+
+  /* PAGE 3 ----------------------------------------------------- */
+  #p2 {
+    top: 10%;
+  }
+
+  #figure2 img {
+    top: 20%;
+    left: 6%
+  }
+
+  #figure2 figcaption {
+    top: 60%;
+    left: 14%;
+  }
+
+  /* PAGE 4 & 5 --------------------------------------------------------- */
+  #figure3, #figure4, #figure11, #figure12, #figure13, #figure14 {
+    top: 0 !important;
+    height: 100% !important;
+    width: 41% !important;
+  }
+
+  #figure4, #figure12, #figure14 {
+    left: 50% !important;
+  }
+
+  #figure4 img {
+    height: 65%;
+    top: 5%;
+  }
+
+  #figure4 figcaption {
+    top: 73%;
+  }
+
+  #page5 .arrow-link, #page14 .arrow-link, #page15 .arrow-link {
+    left: 42.5% !important;
+    top: 86% !important;
+  }
+
+  /* PAGE 6 --------------------------------------------------------*/
+  #p3 {
+    padding: 3% 5%;
+    top: 10%;
+  }
+
+  #p6-line1 {
+    height: var(--l);
+    width: 40%;
+    top: 45%;
+  }
+
+  #p6-line2 {
+    height: var(--l);
+    width: 40%;
+    top: 55%;
+  }
+
+  #p6-line3 {
+    width: var(--l);
+    height: 90%;
+    top: 10%;
+    left: 37%;
+  }
+
+  #p6-line4 {
+    width: var(--l);
+    height: 45%;
+    left: 5%;
+  }
+
+  #p6-rec1 {
+    background-color: blue;
+    width: 5%;
+    height: 34%;
+    top: 11%;
+  }
+
+  #p6-rec2 {
+    background-color: blue;
+    width: 3%;
+    height: 89%;
+    top: 11%;
+    left: 37%;
+  }
+
+  #p6-rec3 {
+    background-color: yellow;
+    width: 3%;
+    height: 10%;
+    top: 45%;
+    left: 37%;
+  }
+
+  #p6-rec4 {
+    background-color: blue;
+    width: 5%;
+    height: 2%;
+    top: 8%;
+  }
+
+  /* PAGE 7 ------------------------------------------------- */
+  #p4, #p6, #p7, #p8, #p9 {
+    top: 35%;
+  }
+
+  #figure5 img {
+    top: 15%;
+  }
+
+  #figure5 figcaption {
+    top: 70%;
+  }
+
+  /* PAGE 8 ---------------------------------------------- */
+  #figure6 figcaption {
+    top: 60%;
+    left: 28%;
+  }
+
+  /* PAGE 9 ---------------------------------------------- */
+  #figure7 figcaption {
+    left: 19%;
+  }
+
+  /* PAGE 10 ---------------------------------------------- */
+  #figure8 figcaption {
+    left: 19%;
+    top: 70%;
+  }
+
+  /* PAGE 11 ---------------------------------------------------- */
+  #figure9 figcaption {
+    left: 25%;
+    top: 82%;
+  }
+
+  /* PAGE 12 ------------------------------------------------- */
+  #figure10 figcaption {
+    left: 27%;
+    top: 83%
+  }
+
+  /* PAGE 13 --------------------------------------------------- */
+  #p10 {
+    left: 3.6%;
+    padding: 5% 25%;
+    width: 86.5% !important;
+  }
+
+  #p13-line1 {
+    top: 95%;
+    height: var(--l);
+    width: 40%;
+  }
+
+  #p13-line2 {
+    top: 93%;
+    height: var(--l);
+    width: 50%;
+    left: 40%;
+  }
+
+  #p13-line3 {
+    top: 13%;
+    height: var(--l);
+    width: 40%;
+  }
+
+  #p13-line4 {
+    width: var(--l);
+    top: 8%;
+    left: 3%;
+    height: 87%;
+  }
+
+  #p13-rec1 {
+    border: none;
+    background-color: blue;
+    width: 3%;
+    height: 87%;
+    top: 8%;
+    left: 0%;
+  }
+
+  #p13-rec2 {
+    border: none;
+    background-color: blue;
+    width: 40%;
+    height: 2%;
+    top: 11%;
+    left: 0%;
+  }
+
+  #p13-rec3 {
+    background-color: red;
+    width: 49.4%;
+    height: 2%;
+    left: 40.6%;
+    top: 91%;
+  }
+
+  #p13-rec4 {
+    background-color: yellow;
+    width: 49.3%;
+    height: 6%;
+    left: 40.7%;
+    top: 94%;
+  }
+
+  /* PAGE 14 ------------------------------------------------------- */
+  #figure11, #figure13 {
+    border-left: var(--l) solid hsl(0, 0%, 5%);
+  }
+
+  #figure11 img {
+    top: 20%;
+  }
+
+  #figure11 figcaption {
+    top: 60%;
+    left: 13%;
+  }
+
+  #figure12 img {
+    top: 15%;
+  }
+
+  #figure12 figcaption {
+    left: 28%;
+    top: 65%;
+  }
+
+  /* PAGE 15 ------------------------------------------------ */
+  #figure13 img {
+    top: -2%;
+  }
+
+  #figure13 figcaption {
+    top: 65%;
+    left: 10%;
+  }
+
+  #figure14 img {
+    top: 8.5%;
+  }
+
+  #figure14 figcaption {
+    top: 65%;
+  }
+
+  /* PAGE 16 ------------------------------------------------------- */
+  #p11 {
+    top: 25%;
+  }
+
+  #figure15 img {
+    top: 15%;
+  }
+  #figure15 figcaption {
+    top: 70%;
+  }
+
+  /* PAGE 17 & 18 --------------------------------------------------------- */
+  #p12 {
+    text-align: center;
+    top: 3%;
+    left: 0%;
+    width: 100% !important;
+    padding: 1%;
+  }
+
+  #figure16 {
+    top: 14% !important;
+  }
+
+  #figure16 img {
+    top: 10%;
+  }
+
+  #figure16 figcaption {
+    top: 78%;
+  }
+
+  #figure17 {
+    top: 14% !important;
+    left: 55% !important;
+  }
+
+  #figure17 img {
+    top: 4%;
+  }
+
+  #figure17 figcaption {
+    top: 81%;
+  }
+
+  #page18 .arrow-link {
+    left: 45% !important;
+    top: 85% !important;
+  }
+
+  /* PAGES 19 & 20 ------------------------------------- */
+  #figure18 img {
+    width: 75%;
+  }
+
+  #figure18 figcaption {
+    top: 84%;
+  }
+
+  #figure19 {
+    left: 50% !important;
+  }
+
+  #figure19 img {
+    width: 64%;
+    left: 18%;
+  }
+
+  #figure19 figcaption {
+    top: 85%;
+  }
+
+  #page20 .arrow-link {
+    left: 42.2% !important;
+    top: 85% !important;
+  }
+
+  /* PAGE 21 ------------------------------------------------ */
+  #p13 {
+    padding-top: 6%;
+    left: 0%;
+    width: 100% !important;
+    height: 80%;
+  }
+
+  /* PAGE 22 & 23 ------------------------------------------------- */
+  #p14 {
+    left: 0;
+    width: 100% !important;
+    padding: 2%;
+    text-align: center;
+  }
+
+  #figure20, #figure21, #figure22, #figure23 {
+    height: 83% !important;
+    top: 17% !important;
+  }
+
+  #figure20 img {
+    top: 15%;
+  }
+
+  #figure20 figcaption {
+    top: 70%;
+  }
+
+  #figure21, #figure23 {
+    left: 50% !important;
+  }
+
+  #figure21 img {
+    top: 16%;
+  }
+
+  #figure21 figcaption {
+    top: 71%;
+  }
+
+  #page23 .arrow-link, #page25 .arrow-link, #page27 .arrow-link,
+  #page30 .arrow-link, #page33 .arrow-link {
+    left: 42.5% !important;
+    top: 86% !important;
+  }
+
+  /* PAGES 24 & 25 -------------------------------------------- */
+  #p15 {
+    left: 0;
+    width: 100% !important;
+    padding: 1.5%;
+    padding-left: 5%;
+  }
+
+  #figure22 figcaption {
+    top: 78%;
+  }
+
+  #figure23 img {
+    top: 5%;
+    width: 80%;
+    left: 10%;
+  }
+
+  #figure23 figcaption {
+    top: 82%;
+  }
+
+  /* PAGES 26 & 27 ------------------------------------- */
+  #figure24 img {
+    width: 86%;
+    left: 7%;
+  }
+  #figure25, #figure28, #figure31 {
+    left: 50% !important;
+  }
+
+  #figure25 img {
+    width: 76%;
+    left: 12%;
+    top: 4%;
+  }
+
+  #figure25 figcaption {
+    top: 85%;
+  }
+
+  /* PAGE 28 ------------------------------------------------- */
+  #p16 {
+    top: 35%;
+  }
+
+  #figure26 {
+    top: 7% !important;
+    width: 41% !important;
+    height: 93% !important;
+  }
+  #figure26 img {
+    top: 8%;
+  }
+
+  #figure26 figcaption {
+    top: 80%;
+  }
+
+  /* PAGES 29 & 30 --------------------------------------------- */
+  #figure27 img, #figure28 img {
+    width: 80%;
+    left: 10%;
+  }
+
+  #figure27 figcaption, #figure28 figcaption {
+    top: 83%;
+  }
+
+  #figure28 img {
+    top: 7%;
+  }
+
+  /* PAGE 31 ------------------------------------------- */
+  #p17 {
+    top: 25%;
+  }
+
+  #figure29 img {
+    top: 18.5%;
+  }
+
+  #figure29 figcaption {
+    top: 67%;
+  }
+
+  /* PAGES 34 & 35 --------------------------------------- */
+  #p18, #p19, #p20, #p21, #p22, #p23 {
+    padding: 1% 3%;
+    width: 100% !important;
+    left: 0;
+  }
+
+  #p19 {
+    top: 30%;
+  }
+
+  #p20 {
+    top: 49%;
+  }
+
+  #p21 {
+    top: 68%;
+  }
+
+  #page35 .arrow-link {
+    top: 88% !important;
+    left: 87.4% !important;
+  }
+
+  /* PAGE 36 & 37 --------------------------------------- */
+  #p22 {
+    top: 7%;
+    height: 57%;
+  }
+
+  #page37 .arrow-link {
+    top: 89% !important;
+    left: 87.4% !important;
+  }
+
+  #p23 {
+    top: 65%;
+  }
+
+  /* FOOTER ----------------------------------------- */
+  /* #figure32 {
+    width: 90.5% !important;
+    height: 33% !important;
+    top: 65% !important;
+    left: 0% !important;
+  } */
+
+  #figure32 img {
+    width: 92%;
+    left: 4%;
+    top: 15%;
+  }
+
+  #figure32 figcaption {
+    top: 63%;
+  }
+
+  .menu-link {
+    border: calc(var(--wpx)/250) solid black;
+    font-size: calc(var(--wpx)/40);
+    left: 60%;
+    top: 20%;
+  }
+
+  #chapter-nav-next {
+    left: 63% !important;
+    top: 50% !important;
+  }
+
+  #nav-tag-next {
+    font-size: calc(var(--wpx)/35);
+    top: 55%;
+    left: 41%;
+  }
+}

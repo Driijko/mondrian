@@ -170,20 +170,26 @@ figcaption {
 
   /* HEADERS ------------------------------------------- */
   h2 {
-    font-size: calc(var(--w)/15);
+    font-size: calc(var(--wpx)/15);
   }
 
   h2 .chapter-num {
-    font-size: calc(var(--w)/10);
+    font-size: calc(var(--wpx)/10);
   }
 
   h2 .date {
-    font-size: calc(var(--w)/20);
+    font-size: calc(var(--wpx)/20);
   }
+
+  /* PARAGRAPHS ------------------------------------------- */
+  p {
+    font-size: calc(var(--wpx)/50);
+  }
+
 
   /* IMAGES & FIGURES ------------------------------  */
   figcaption {
-    padding: calc(var(--w)/100);
-    font-size: calc(var(--w)/60)
+    padding: calc(var(--wpx)/100);
+    font-size: calc(var(--wpx)/60)
   }
 }
