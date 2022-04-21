@@ -1131,11 +1131,13 @@ h2 .date {
   #figure1, #figure2 {
     top: 25%;
     height: 75%;
+    width: 45.1%
   }
 
   /* LEAF 6 -------------------------------------------------- */
-  #p3, #p4 {
-    left: 0%;
+  #p3, #p4, #p5 {
+    left: 3%;
+    top: 8%;
   }
 
   #figure3 {
@@ -1552,7 +1554,7 @@ h2 .date {
   width: 50%;
   text-align: left;
   left: 50%;
-  padding-left: 3%;
+  padding-left: 5%;
   border: var(--l) solid black;
   border-right: none;
   background-color: white;
