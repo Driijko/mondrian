@@ -1,16 +1,6 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body, div, span, h2, p,
+a, img, i,
+figure, figcaption, footer, header {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -20,27 +10,12 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+figcaption, figure, 
+footer, header, section {
 	display: block;
 }
 body {
 	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
 }
 a {
 	text-decoration: none;
@@ -253,7 +228,11 @@ figcaption {
 /* LINES ----------------------------------------------- */
 .line {
   background-color: black;
+}
+
+.anim-line {
   opacity: 0;
+  background: black;
 }
 
 /* RECS ------------------------------------------------- */
@@ -274,7 +253,7 @@ figcaption {
   width: var(--l);
   height: 100%;
   left: 50%;
-  animation: scale-v 3s forwards ease-in-out;
+  animation: scale-v 2s forwards ease-in-out;
 }
 
 #f-line2 {
@@ -282,7 +261,7 @@ figcaption {
   width: 50%;
   left: 50%;
   top: 30%;
-  animation: scale-h 3s forwards ease-in-out;
+  animation: scale-h 2s forwards ease-in-out;
 }
 
 #f-line3 {
@@ -290,14 +269,14 @@ figcaption {
   width: 50%;
   left: 50%;
   top: 70%;
-  animation: scale-h 3s forwards ease-in-out;
+  animation: scale-h 2s forwards ease-in-out;
 }
 
 #f-rec1 {
   background-color: yellow;
   width: 50%;
   height: 100%;
-  animation: fade-in 2s 3s ease-out forwards;
+  animation: fade-in 2s 1.5s ease-out forwards;
 }
 
 /* HEADER ------------------------------------------------- */
@@ -317,7 +296,7 @@ h2 .chapter-num {
   top: 5%;
   opacity: 0;
   font-size: calc(var(--wpx)/4);
-  animation: fade-in 2s 4s ease-out forwards;
+  animation: fade-in 1s 2.4s ease-out forwards;
   font-weight: 500;
   font-size: calc(var(--wpx)/5);
 }
@@ -330,7 +309,7 @@ h2 .title {
   font-size: calc(var(--wpx)/10);
   opacity: 0;
   font-weight: 500;
-  animation: fade-in 2s 5s ease-out forwards;
+  animation: fade-in 1s 3s ease-out forwards;
 }
 
 h2 #title1 {
@@ -359,7 +338,7 @@ h2 .date {
   left: -2%;
   width: 50%;
   opacity: 0;
-  animation: fade-in 2s 6s ease-out forwards;
+  animation: fade-in 1s 4s ease-out forwards;
   font-weight: 400;
   font-size: calc(var(--wpx)/10);
   font-style: italic;
@@ -369,7 +348,7 @@ header .arrow-link {
   left: 70%;
   top: 82%;
   opacity: 0;
-  animation: fade-in 2s 8s ease-out forwards;
+  animation: fade-in 2s 5s ease-out forwards;
 }
 
 /* INSERTED PAGE 1 ------------------------------------------ */
@@ -837,6 +816,11 @@ header .arrow-link {
 #p22 {
   top: 8%;
 }
+
+/* PAGE 37 --------------------------------------------- */
+#p23 {
+  top: 30%;
+}
 /* FOOTER --------------------------------------------------- */
 .menu-link {
   border: calc(var(--wpx)/150) solid black;
@@ -1022,7 +1006,7 @@ header .arrow-link {
     background-color: red;
     height: 7%;
     width: 95%;
-    animation: fade-in 2s 4s ease-out forwards;
+    animation: fade-in 2s 2s ease-out forwards;
   }
 
   #f-rec3 {
@@ -1031,7 +1015,7 @@ header .arrow-link {
     width: 5%;
     left: 95%;
     top: 7%;
-    animation: fade-in 2s 5s ease-out forwards;
+    animation: fade-in 2s 2.5s ease-out forwards;
   }
 
   /* HEADER ------------------------------------------- */
@@ -1046,14 +1030,15 @@ header .arrow-link {
     left: 32%;
     top: 7%;
     font-size: calc(var(--wpx)/8);
-    animation: fade-in 2s 7s ease-out forwards;
+    animation: fade-in 5s 1s ease-out forwards;
   }
 
   h2 .title {
     font-size: calc(var(--wpx)/25);
     left: 47%;
     top: 3%;
-    animation: fade-in 2s 9s ease-out forwards;
+    font-weight: 700;
+    animation: fade-in 5s 2s ease-out forwards;
   }
 
   h2 #title1, h2 #title2, h2 #title3 {
@@ -1069,11 +1054,11 @@ header .arrow-link {
     font-size: calc(var(--wpx)/25);
     left: 47%;
     top: 58%;
-    animation: fade-in 2s 9s ease-out forwards;
+    animation: fade-in 5s 3s ease-out forwards;
   }
 
   header .arrow-link {
-    animation: fade-in 2s 11s ease-out forwards;
+    animation: fade-in 3s 4.5s ease-out forwards;
   }
 
   /* INSERTED PAGE 1 ---------------------------------------- */
@@ -1595,12 +1580,6 @@ header .arrow-link {
   }
 
   /* FOOTER ----------------------------------------- */
-  /* #figure32 {
-    width: 90.5% !important;
-    height: 33% !important;
-    top: 65% !important;
-    left: 0% !important;
-  } */
 
   #figure32 img {
     width: 92%;
@@ -1620,13 +1599,13 @@ header .arrow-link {
   }
 
   #chapter-nav-next {
-    left: 63% !important;
+    left: 62.5% !important;
     top: 50% !important;
   }
 
   #nav-tag-next {
     font-size: calc(var(--wpx)/35);
     top: 55%;
-    left: 41%;
+    left: 41.5%;
   }
 }

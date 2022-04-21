@@ -1,0 +1,1587 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+  display: block;
+}
+a:focus {
+	outline: none;
+}
+
+/* CSS TOOLS /////////////////////////////////////// */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+  -ms-overflow-style: none;
+  overflow: hidden;
+  overflow: -moz-scrollbars-none; 
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#fixed-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#msc {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.vp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.ur {
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+}
+
+.abs {
+  position: absolute;
+}
+
+i {
+  font-style: italic;
+  padding-right: 0.5ch;
+}
+
+.desktop {
+  display: none;
+}
+
+.cv2 {
+  width: 100%;
+  height: 200%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi2 {
+  width: 100%;
+  height: 50%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv3 {
+  width: 100%;
+  height: 300%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi3 {
+  width: 100%;
+  height: 33.3333%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTENT /////////////////////////////////////////////////// */
+/* ANIMATIONS --------------------------------------------- */
+@keyframes fade-in {from{opacity:0;} to{opacity:1;}}
+@keyframes fade-out {from{opacity:1;} to{opacity:0;}}
+@keyframes scale-v {
+  from {
+    transform: scaleY(0);
+    opacity: 1;
+  } to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-h {
+  from {
+    opacity: 1;
+    transform: scaleX(0);
+  } to {
+    opacity: 1;
+    transform: scaleY(1);
+}}
+
+/* GENERAL //////////////////////////////////////////////////// */
+:root {
+  --l: calc(var(--wpx)/60);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* FIXED LAYER ----------------------------------------------- */
+#fixed-layer {
+  background-color: black;
+}
+
+#fixed-layer .ur {
+  background-color: white;
+}
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  position: absolute;
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/100);
+  background-color: white;
+  width: 11%;
+  height: 6%;
+  transition: border-radius 0.5s, background-color 1.4s; 
+}
+
+.arrow-link.default-pos {
+  top: 88%;
+  left: 5%;
+}
+
+.arrow-link svg {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-link path {
+  transition: fill 2s;
+}
+
+.arrow-link:focus-visible {
+  border-radius: 0;
+  background-color: black;
+}
+
+.arrow-link:focus-visible path {
+  fill: red;
+}
+
+@media (hover:hover) {
+  .arrow-link:hover {
+    border-radius: 0;
+    background-color: black;
+  }
+  
+  .arrow-link:hover path {
+    fill: red;
+  } 
+}
+
+.menu-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/30);
+  font-weight: 500;
+  font-size: calc(var(--wpx)/19);
+  padding: 1%;
+  line-height: 3;
+}
+
+.menu-link:hover, .menu-link:focus {
+  border-radius: 0;
+  background-color: black;
+  color: red;
+}
+
+/* PARAGRAPHS -------------------------------------------------- */
+p {
+  line-height: 2;
+  font-size: calc(var(--wpx)/22);
+  font-weight: 500;
+  border-top: var(--l) solid black;
+  border-bottom: var(--l) solid black;
+  background-color: white;
+  padding: 5%;
+  position: absolute;
+}
+
+/* IMAGES & FIGURES ------------------------------------------- */
+img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+figure {
+  background-color: black;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+figure img {
+  width: 100%;
+  height: 100%;
+}
+
+figcaption {
+  color: white;
+  line-height: 1.5;
+  font-weight: 200;
+  font-size: calc(var(--wpx)/25);
+}
+
+.fc1, .fc2 {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fc1 picture {
+  max-height: 85%;
+  max-width: 90%;
+  padding-bottom: 5%;
+}
+
+.fc1 figcaption, .fc3 figcaption, .fc4 figcaption {
+  text-align: center;
+}
+
+.fc2-1 {
+  padding: 25% 5% 8% 5%;
+}
+
+.fc2-2 {
+  padding: 12% 5% 4% 5%;
+}
+
+.fc2 picture {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.fc2 figcaption {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  text-align: left;
+}
+
+.fc3, .fc4 {
+  justify-content: space-around;
+  padding: 2%;
+}
+
+.fc3 picture, .fc4 picture {
+  height: 100%;
+  max-width: 65%;
+}
+
+.fc4 picture {
+  order: 2;
+}
+
+.m-pos1 {
+  height: 86%;
+}
+
+.m-pos2 {
+  left: 20%;
+  width: 80%;
+  bottom: 0%;
+}
+
+.m-pos3 {
+  bottom: 14%;
+  width: 100%;
+}
+
+/* ANIMATED GEOMETRY -------------------------------------- */
+.anim {
+  opacity: 0;
+}
+
+/* LINES ----------------------------------------------- */
+.line {
+  background-color: black;
+}
+
+/* PAGES ////////////////////////////////////////////////////// */
+/* FIXED LAYER ------------------------------------------------ */
+#line1 {
+  width: 100%;
+  height: var(--l);
+  top: 3%;
+  animation: scale-h 3s ease-in-out forwards;
+  transform-origin: 0% 50%;
+}
+
+#line2 {
+  width: 100%;
+  height: var(--l);
+  top: 96%;
+  animation: scale-h 3s ease-in-out forwards;
+  transform-origin: 0% 50%;
+}
+
+#line3 {
+  width: var(--l);
+  height: 96.8%;
+  top: 3.2%;
+  left: 20%;
+  animation: scale-v 3s ease-in-out forwards;
+  transform-origin: 50% 100%;
+}
+
+#line4 {
+  width: 80%;
+  height: var(--l);
+  left: 20%;
+  top: 5%;
+  animation: scale-h 3s ease-in-out forwards;
+  transform-origin: 100% 50%;
+}
+
+#line5 {
+  width: 20%;
+  height: var(--l);
+  top: 85%;
+  animation: scale-h 3s ease-in-out forwards;
+  transform-origin: 0% 50%;
+}
+
+/* RECS-------------------------------------------- */
+#rec1 {
+  background-color: yellow;
+  width: 100%;
+  height: 3%;
+  animation: fade-in 2s 2.5s ease-out forwards;
+  opacity: 0;
+}
+
+#rec2 {
+  background-color: yellow;
+  width: 20%;
+  height: 4%;
+  top: 96%;
+  animation: fade-in 2s 2.5s ease-out forwards;
+  opacity: 0;
+}
+
+#rec3 {
+  background-color: red;
+  width: 80%;
+  height: 2%;
+  left: 20%;
+  top: 3%;
+  animation: fade-in 2s 2.5s ease-out forwards;
+  opacity: 0;
+}
+
+#rec4 {
+  background-color: red;
+  width: 20%;
+  height: 12%;
+  top: 85%;
+  animation: fade-in 2s 2.5s ease-out forwards;
+  opacity: 0;
+}
+
+#rec5 {
+  background-color: blue;
+  width: 80%;
+  height: 4%;
+  top: 96%;
+  left: 20%;
+  animation: fade-in 2s 2.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* HEADER --------------------------------------- */
+h2 {
+  text-align: center;
+  left: 20%;
+  top: 13%;
+  width: 80%;
+  font-size: calc(var(--wpx)/7);
+  line-height: 1.5;
+  opacity: 0;
+  animation: fade-in 2s 4s ease-in forwards;
+}
+
+h2 .chapter-num {
+  font-weight: 600;
+  font-size: calc(var(--wpx)/4.5);
+}
+
+h2 .title {
+  font-weight: 500;
+}
+
+h2 .date {
+  font-weight: 400;
+  font-size: calc(var(--wpx)/10);
+  font-style: italic;
+}
+
+#leaf1 .arrow-link {
+  opacity: 0;
+  animation: fade-in 2s 6s ease-in forwards;
+}
+
+/* LEAF 2----------------------------------------------------- */
+  #p1 {
+  top: 5%;
+  padding: 20% 10%;
+}
+
+#pic1 {
+  background-color: black;
+  width: 100%;
+  height: 41%;
+  top: 44.5%;
+}
+
+/* LEAF 3 ----------------------------------------------------- */
+#p2 {
+  padding: 20% 10%;
+  top: 20%;
+}
+
+/* LEAF 5 ----------------------------------------------------- */
+#figure2 {
+  top: 0%;
+  width: 100%;
+}
+
+/* LEAF 6 ------------------------------------------------ */
+#figure3 {
+  width: 79%;
+  left: 21%;
+  height: 67%;
+  top: 33%;
+}
+
+/* LEAF 8 --------------------------------------------------- */
+#figure5 {
+  top: 38%;
+  height: 63%;
+  width: 79%;
+  left: 21%;
+}
+
+/* LEAF 9 -------------------------------------------- */
+#p5 {
+  top: 3%;
+}
+
+/* LEAF 11 ----------------------------------------- */
+
+#p7, #p8 {
+  padding: 10%;
+}
+
+#p7 {
+  top: 2%;
+}
+
+#p8 {
+  top: 63%;
+}
+
+/* LEAF 13 ------------------------------------------------ */
+#figure9 {
+  height: 52%;
+}
+
+/* LEAF 14 ------------------------------------------------ */
+#p9, #p10 {
+  top: 3%;
+}
+
+/* LEAF 17 ----------------------------------------------- */
+#p11 {
+  padding: 10% 8%;
+  top: 13%;
+}
+
+/* LEAF 19 ----------------------------------------------- */
+#figure14 {
+  height: 95%;
+}
+
+/* LEAF 20 --------------------------------------------- */
+#figure15 {
+  height: 62%;
+}
+
+/* LEAF 21 ---------------------------------------- */
+#p13 {
+  padding: 16% 8%;
+}
+
+/* LEAF 23 ----------------------------------------- */
+#p14 {
+  padding: 20% 5%;
+  top: 15%;
+}
+
+/* LEAF 24 ------------------------------------------- */
+#figure17 img {
+  padding-top: 8%;
+}
+
+/* LEAF 25 --------------------------------------------- */
+#figure18 {
+  height: 65%;
+}
+
+/* LEAF 26 --------------------------------------------- */
+#p16 {
+  top: 25%;
+}
+
+#l26-rec1 {
+  position: absolute;
+  background-color: blue;
+  top: 5.9%;
+  width: 78.3%;
+  height: 20%;
+  left: 21.7%;
+}
+
+#l26-rec2 {
+  position: absolute;
+  background-color: blue;
+  top: 63.1%;
+  width: 20%;
+  height: 21.9%;
+  left: 0%;
+}
+
+/* LEAF 27 ------------------------------------------------ */
+#figure19 {
+  height: 73%;
+}
+
+/* LEAF 29 --------------------------------------------------- */
+#p18 {
+  top: 3%;
+}
+#figure20, #figure21 {
+  height: 67%;
+}
+
+/* LEAF 30 ---------------------------------------------------- */
+#p19 {
+  top: 57%;
+}
+
+#figure22 {
+  bottom: 45%;
+}
+
+/* LEAF 31----------------------------------------------- */
+#p20 {
+  border: var(--l) solid black;
+  top: 73%;
+  left: 0%;
+  width: 100%;
+}
+
+#figure23 {
+  bottom: 27%;
+  height: 73%;
+}
+
+#l31-rec1 {
+  background-color: yellow;
+  position: absolute;
+  left: 21.6%;
+  width: 78.4%;
+  height: 11%;
+  top: 85%;
+}
+
+/* LEAF 32 ------------------------------------------------ */
+#p21 {
+  padding: 20% 5%;
+  top: 20%;
+}
+
+#l32-rec1 {
+  position: absolute;
+  background-color: red;
+  top: 5.9%;
+  height: 14.3%;
+  width: 50%;
+  left: 21.6%;
+  border-right: var(--l) solid black;
+}
+
+#l32-rec2 {
+  position: absolute;
+  background-color: red;
+  top: 64.5%;
+  height: 31.5%;
+  width: 50%;
+  left: 50%;
+  border-left: var(--l) solid black;
+}
+
+/* LEAF 33 ----------------------------------------- */
+#figure24 {
+  height: 78%;
+}
+
+#figure24 figcaption {
+  top: 4%;
+}
+
+/* LEAF 34 -------------------------------------------------- */
+#p23 {
+  top: 3%;
+}
+
+#p24 {
+  top: 38.5%;
+}
+
+#p25 {
+  top: 70%;
+  top: 69%;
+}
+
+/* LEAF 35 ------------------------------------------------- */
+#leaf35 picture {
+  position: absolute;
+  width: 78.5%;
+  height: 63%;
+  left: 21.5%;
+  top: 33.1%;
+  text-align: center;
+  background-color: black;
+  padding: 3%;
+}
+
+#leaf35 picture img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#l35-rec1 {
+  position: absolute;
+  top: 33.1%;
+  background-color: black;
+  width: 20%;
+  height: 52%;
+}
+
+/* LEAF 36 --------------------------------------------- */
+#figure25 {
+  bottom: 0%;
+  height: 67%;
+  padding-bottom: 20%;
+}
+
+#leaf36 .arrow-link {
+  top: 91%;
+  left: 45%;
+}
+
+/* LEAF 37 --------------------------------------------------- */
+#p28 {
+  padding: 11% 5%;
+  top: 3%;
+}
+
+#leaf37 picture {
+  background-color: black;
+  position: absolute;
+  top: 27%;
+  height: 59%;
+  padding: 15% 2% 0% 2%;
+}
+
+/* FOOTER -------------------------------------------------- */
+#figure27 {
+  height: 63%;
+  top: 2%;
+  padding-bottom: 15%;
+}
+
+.menu-link {
+  background-color: red;
+  position: absolute;
+  width: 20%;
+  left: 0%;
+  top: 69%;
+  border-color: black;
+  transition: border-radius 1s, background-color 1.4s, color 2s, border-color 2s; 
+  color: black;
+}
+
+#next-chapter-tag {
+  top: 64%;
+  padding-top: 10%;
+  width: 78.5%;
+  text-align: center;
+  left: 21.6%;
+}
+
+#next-chapter-tag span {
+  font-weight: 700;
+}
+
+#next-chapter-link {
+  top: 61.5%;
+  left: 55%;
+  transition: border-radius 0.5s, background-color 1.4s, border-color 5s; 
+}
+
+#next-chapter-link:hover {
+  border-color: white;
+}
+
+#l38-rec1 {
+  position: absolute;
+  background-color: yellow;
+  width: 20%;
+  height: 20%;
+  left: 0%;
+  top: 65%;
+}
+
+/* ////////////////////////////////////////////////////////// */
+/* LANDSCAPE STYLES //////////////////////////////////////// */
+/* //////////////////////////////////////////////////////// */
+@media only screen and (orientation: landscape) {
+  /* CSS TOOLS //////////////////////////////////////////// */
+  .cv2, .cv3 {
+    height: 100%;
+    position: relative;
+  }
+
+  .cvi2, .cvi3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .cvi2 a, .cvi3 a {
+    pointer-events: initial;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: initial;
+  }
+
+  .desktop-abs {
+    position: absolute;
+  }
+
+  /* GENERAL /////////////////////////////////////////////// */
+  :root {
+    --l: calc(var(--wpx)/150);
+  }
+
+  /* NAVIGATION ------------------------------------------- */
+  .arrow-link {
+    border-width: calc(var(--wpx)/300);
+    width: 6%;
+    height: 9%;
+  }
+
+  .arrow-link.default-pos {
+    left: 92.5%;
+    top: 84%;
+  }
+
+  /* PARAGRAPHS ------------------------------------------- */
+  p {
+    font-size: calc(var(--wpx)/50);
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    left: 5%;
+  }
+
+  .p-pos1 {
+    top: 7%;
+    left: 3%;
+  }
+
+  /* IMAGES & FIGURES ------------------------------  */
+  figcaption {
+    padding: calc(var(--wpx)/100);
+    font-size: calc(var(--wpx)/60)
+  }
+
+  .d-fc1 figcaption, .d-fc3 figcaption, .d-fc4 figcaption {
+    position: initial;
+  }
+
+  .d-fc1, .d-fc2 {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .d-fc1 picture {
+    max-height: 85%;
+    padding-bottom: 5%;
+  }
+  
+  .d-fc1 figcaption, .d-fc3 figcaption, .d-fc4 figcaption {
+    text-align: center;
+  }
+  
+  .d-fc2-1 {
+    padding: 25% 5% 8% 5%;
+  }
+  
+  .d-fc2-2 {
+    padding: 12% 5% 4% 5%;
+  }
+  
+  .d-fc2 picture {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  
+  .d-fc2 figcaption {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    text-align: left;
+  }
+  
+  .d-fc3, .d-fc4 {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2%;
+  }
+  
+  .d-fc3 picture, .d-fc4 picture {
+    height: 100%;
+    max-width: 65%;
+  }
+  
+  .d-fc4 picture {
+    order: 2;
+  }
+
+  figure.d-pos1 {
+    bottom: 0%;
+    width: 45.1%;
+    left: -0.1%;
+  }
+
+  figure.d-pos2 {
+    width: 45.1%;
+    left: 45%;
+    bottom: 0%;
+    border-left: calc(var(--wpx)/500) solid white;
+  }
+
+  figure.d-pos3 {
+    left: -0.1%;
+    bottom: 0%;
+    width: 90.7%;
+    height: 100%;
+  }
+
+  /* PAGES ////////////////////////////////////////////////// */
+  /* FIXED-LAYER ------------------------------------------- */
+  #line3 {
+    left: 90%;
+  }
+
+  #line4 {
+    left: 0;
+    width: 90%;
+    transform-origin: 0% 100%;
+  }
+
+  #line5 {
+    left: 90%;
+    width: 10%;
+    top: 80%;
+    transform-origin: 100% 50%;
+  }
+
+  #rec2 {
+    left: 90%;
+    width: 10%;
+  }
+  #rec3 {
+    left: 0;
+    width: 90%;
+  }
+
+  #rec4 {
+    left: 90%;
+    width: 10%;
+    top: 80%;
+    height: 16%;
+  }
+
+  #rec5 {
+    left: 0;
+    width: 90%;
+  }
+
+  /* HEADER ------------------------------------------- */
+  h2 {
+    left: 0;
+    top: 6%;
+    width: 90%;
+    height: 90%;
+    font-size: calc(var(--wpx)/20);
+    animation: fade-in 3s 5s ease-out forwards;
+  }
+
+  h2 .chapter-num {
+    font-size: calc(var(--wpx)/10);
+    left: 90%;
+  }
+
+  h2 .title {
+    text-align: right;
+    left: 75%; 
+    top: 27%;
+  }
+
+  h2 .date {
+    font-size: calc(var(--wpx)/25);
+    left: 75%;
+    top: 70%;
+  }
+
+  #leaf1 .arrow-link {
+    animation: fade-in 3s 11s ease-out forwards;
+  }
+
+  #l1-animation1 {
+    width: 100%;
+    height: 100%;
+  }
+
+  #l1-line1 {
+    width: var(--l);
+    height: 100%;
+    left: 20%;
+    animation: scale-v 7s 2.5s ease-in-out forwards;
+  }
+
+  #l1-line2 {
+    width: var(--l);
+    height: 100%;
+    left: 60%;
+    animation: scale-v 7s 2.5s ease-in-out forwards;
+  }
+
+  #l1-line3 {
+    height: var(--l);
+    width: 60%;
+    top: 50%;
+    animation: scale-h 7s 2.5s ease-in-out forwards;
+  }
+
+  #l1-line4 {
+    width: var(--l);
+    height: 90%;
+    top: 6%;
+    left: 58%;
+    animation: scale-v 7s 2.5s ease-in-out forwards;
+  }
+
+  #l1-line5 {
+    height: var(--l);
+    width: 100%;
+    top: 8%;
+    animation: scale-h 7s 2.5s ease-in-out forwards;
+  }
+
+  #l1-rec1 {
+    background-color: red;
+    height: 90%;
+    top: 6%;
+    width: 2%;
+    left: 58%;
+    opacity: 0;
+    animation: fade-in 2s 8.5s forwards ease-in-out;
+  }
+
+  #l1-rec2 {
+    background-color: blue;
+    height: 2%;
+    top: 6%;
+    width: 30%;
+    left: 60%;
+    opacity: 0;
+    animation: fade-in 2s 8.5s forwards ease-in-out;
+  }
+
+  #l1-rec3 {
+    background-color: yellow;
+    height: 46%;
+    top: 50%;
+    width: 20%;
+    left: 0%;
+    opacity: 0;
+    animation: fade-in 2s 8.5s forwards ease-in-out;
+  }
+
+  #l1-rec4 {
+    background-color: blue;
+    height: 43%;
+    top: 8%;
+    width: 38%;
+    left: 20%;
+    opacity: 0;
+    animation: fade-in 2s 8.5s forwards ease-in-out;
+  }
+
+  /* LEAF 2 ------------------------------------------ */
+  #p1 {
+    padding: 0;
+    width: 60%;
+    top: 11%;
+  }
+
+  #pic1 {
+    padding: 4%;
+    width: 90.2%;
+    height: 70%;
+    top: 30%;
+    left: -0.1%;
+  }
+
+  /* LEAVES 3 - 5 ------------------------------------------- */
+  #p2 {
+    width: 60%;
+    top: 9%;
+    padding: 0;
+  }
+
+  #figure1, #figure2 {
+    top: 25%;
+    height: 75%;
+  }
+
+  /* LEAF 6 -------------------------------------------------- */
+  #p3, #p4 {
+    left: 0%;
+  }
+
+  #figure3 {
+    left: -0.1%;
+    top: 29%;
+    width: 90.2%;
+    height: 71%;
+    padding-top: 4%;
+    padding-left: 20%;
+    padding-bottom: 4%;
+  }
+
+  #figure3 figcaption {
+    top: 35%;
+  }
+
+  /* LEAF 8 -------------------------------------------- */
+  #figure5 {
+    left: -0.1%;
+    width: 90.2%;
+    top: 30%;
+    height: 70%;
+  }
+
+  /* LEAF 9 --------------------------------------------- */
+  #figure6 {
+    height: 72%;
+  }
+
+  /* LEAF 10 -------------------------------------------------- */
+  #figure7 {
+    height: 72%;
+    padding: 2% 15%;
+  }
+
+  /* LEAVES 11 & 12 ---------------------------------------------- */
+  #p7, #p8 {
+    padding: 0;
+  }
+
+  #p7, #p9, #p10, #p12 {
+    top: 7%;
+  }
+
+  #p8 {
+    top: 36%;
+    left: 3%;
+  }
+  #figure8 {
+    height: 56%;
+    width: 90.6%;
+  }
+
+  /* LEAF 13 ------------------------------------------------------ */
+  #figure9 {
+    height: 71%;
+  }
+
+  /* LEAF 14 -------------------------------------------------- */
+  #figure10 {
+    height: 72%;
+    width: 90.6%;
+  }
+
+  /* LEAF 15 ----------------------------------------------------- */
+  #figure11 {
+    height: 78%;
+    width: 90.6%;
+  }
+
+  /* LEAF 17 ------------------------------------------------------------ */
+  #p11 {
+    width: 90%;
+    border-top: var(--l) solid red;
+    border-bottom: var(--l) solid red;
+    left: 0;
+    padding: 7% 5%;
+  }
+
+  /* LEAF 18 & 19 ---------------------------------------------------- */
+  #figure13 {
+    height: 95%;
+  }
+
+  #figure14 {
+    border-color: red;
+  }
+
+  /* LEAF 20 -------------------------------------------------- */
+  #p12 {
+    left: 3%;
+  }
+
+  #figure15 {
+    height: 72%;
+    padding: 3% 15%;
+  }
+
+  /* LEAF 21 ------------------------------------------------------ */
+  #p13 {
+    top: 14%;
+    padding: 10% 3%;
+    line-height:2;
+    left: 0%;
+    width: 90%;
+    border-top: var(--l) solid black;
+    border-bottom: var(--l) solid black;
+  }
+
+  /* LEAF 24 --------------------------------------------- */
+  #p14 {
+    padding: 0;
+    left: 0;
+    padding: 2%;
+    padding-right: 8.2%;
+    top: 25%;
+    left: 15%;
+    border: var(--l) solid black;
+  }
+
+  #l23-line1 {
+    position: absolute;
+    top: 0%;
+    width: var(--l);
+    height: 100%;
+    left: 15%;
+  }
+
+  #l23-rec1 {
+    position: absolute;
+    top: 6%;
+    height: 90%;
+    width: 15%;
+    background-color: yellow;
+  }
+
+  /* LEAF 25 --------------------------------------------- */
+  #p15 {
+    top: 14%;
+    left: 3%;
+  }
+
+  #figure18 {
+    height: 70%;
+  }
+
+  /* LEAF 26 -------------------------------------------------- */
+  #p16 {
+    top: 57%;
+    left: 3%;
+  }
+
+  #l26-rec1 {
+    border-left: var(--l) solid black;
+    width: 25%;
+    left: 65%;
+    height: 90.1%;
+    background-color: yellow;
+  }
+
+  #l26-rec2 {
+    border-bottom: var(--l) solid black;
+    width: 65%;
+    left: 0%;
+    top: 6%;
+    height: 45%;
+    background-color: red;
+  }
+
+  /* LEAF 27 ----------------------------------------------- */
+  #p17 {
+    left: 3%;
+    top: 9%;
+  }
+
+  #figure19 {
+    height: 75%;
+  }
+
+  /* LEAF 29 --------------------------------------------------- */
+  #p18 {
+    top: 75%;
+  }
+
+  #figure21 {
+    top: 6%;
+  }
+
+  
+  /* LEAF 30 --------------------------------------------------- */
+  #p19 {
+    top: 80%;
+    left: 3%;
+  }
+
+  #figure22 {
+    bottom: 22%;
+    height: 72%;
+  } 
+
+  /* LEAF 31 ------------------------------------------------------ */
+
+  #p20 {
+    padding: 2%;
+    left: 74.5%;
+    top: 30%;
+    width: 16%;
+    border-right: none;
+  }
+  
+  #figure23 {
+    width: 75.2%;
+    padding: 3%;
+    bottom: 0%;
+    height: 100%;
+  }
+
+  #l31-rec1 {
+    top: 4%;
+    left: 90.64%;
+    width: 9.4%;
+    height: 60.2%;
+    background-color: yellow;
+    border-bottom: var(--l) solid black;
+  }
+
+  #l31-rec2 {
+    position: absolute;
+    top: 6%;
+    left: 75%;
+    width: 15%;
+    height: 25%;
+    background-color: yellow;
+    border-bottom: var(--l) solid black;
+  }
+
+  /* LEAVES 32 & 33 ------------------------------------------ */
+  #p21, #p22 {
+    left: 0%;
+    padding: 5% 2%;
+    width: 52%;
+    border-top: var(--l) solid black;
+    border-bottom: var(--l) solid black;
+    background-color: white;
+  }
+  
+  #p21 {
+    top: 10%;
+  }
+
+  #p22 {
+    top: 55%;
+  }
+
+  #figure24 {
+    padding: 0;
+    width: 48.1%;
+    left: 52%;
+    height: 100%;
+    border-right: var(--l) solid red;
+  }
+
+  #leaf33 .arrow-link {
+    left: 22.5%;
+    top: 82%;
+  }
+
+  #l32-rec1 {
+    left: 0%;
+    width: 52%;
+    border: none;
+    top: 6%;
+    height: 90%;
+    background-color: blue;
+  }
+
+  #l32-rec2 {
+    display: none;
+  }
+
+  /* LEAF 34 --------------------------------------------- */
+  #p23, #p24, #p25 {
+    left: 0%;
+    padding: 3.5% 10%;
+    width: 100%;
+    border-top: var(--l) solid black;
+    border-bottom: var(--l) solid black;
+  }
+
+  #p23 {
+    top: 7%;
+  }
+  #p24 {
+    top: 46.7%;
+  }
+
+  #p25 {
+    top: 80%;
+    padding: 2.7% 10%;
+    border-bottom: none;
+  }
+
+  #l34-rec1, #l34-rec2 {
+    position: absolute;
+    width: 9.35%;
+    background-color: red;
+    left: 90.65%;
+  }
+
+  #l34-rec1 {
+    top: 7%;
+    height: 38%;
+  }
+
+  #l34-rec2 {
+    top: 47%;
+    height: 32%;
+  }
+
+  /* LEAF 35 ------------------------------------------------- */
+  #p26 {
+    left: 0%;
+    padding: 5% 2%;
+    width: 55%;
+    top: 28%;
+    background-color: white;
+  }
+  
+  #leaf35 picture {
+    width: 45.1%;
+    height: 100%;
+    left: 55%;
+    top: 0%;
+  }
+
+  #l35-rec1 {
+    top: 6%;
+    width: 55.2%;
+    left: -0.1%;
+    height: 90%;
+  }
+
+  #leaf35 .arrow-link {
+    left: 24.5%;
+    top: 75%;
+  }
+
+  /* LEAF 36 -------------------------------------------- */
+  #p27 {
+    background-color: white;
+    left: 36%;
+    width: 65%;
+    padding: 8.05% 1%;
+    top: 24.5%;
+  }
+  #figure25 {
+    top: 0%;
+    width: 100.2%;
+    padding: 15% 65% 10% 0%;
+    height: 100%;
+  }
+
+  #leaf36 .arrow-link {
+    left: 65%;
+    top: 73%;
+  }
+
+  /* LEAF 37 ----------------------------------------------- */
+  #p28 {
+    left: 12%;
+    top: 9%;
+    padding: 0%;
+  }
+
+  #leaf37 picture {
+    top: 19%;
+    width: 90.2%;
+    height: 81%;
+    left: -0.1%;
+    padding: 2%;
+    padding-left: 13%;
+  }
+
+  #leaf37 picture img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  /* FOOTER ----------------------------------------- */
+  /* FOOTER -------------------------------------------------- */
+#figure27 {
+  height: 90.1%;
+  width: 50.1%;
+  top: 6%;
+  padding: 0% 5%;
+}
+
+.menu-link {
+  background-color: red;
+  position: absolute;
+  width: 10%;
+  left: 85.5%;
+  top: 15%;
+  border-color: black;
+  transition: border-radius 1s, background-color 1.4s, color 2s, border-color 2s; 
+  color: black;
+  border: calc(var(--wpx)/250) solid black;
+  font-size: calc(var(--wpx)/45);
+}
+
+#next-chapter-tag {
+  top: 38%;
+  padding-top: 0%;
+  width: 50%;
+  text-align: left;
+  left: 50%;
+  padding-left: 3%;
+  border: var(--l) solid black;
+  border-right: none;
+  background-color: white;
+}
+
+#next-chapter-tag span {
+  font-weight: 700;
+}
+
+#next-chapter-link {
+  top: 50%;
+  left: 87.5%;
+  background-color: red;
+  transition: border-radius 0.5s, background-color 1.4s, border-color 1s; 
+}
+
+#next-chapter-link:hover {
+  border-color: white;
+  background-color: white;
+}
+
+#l38-rec1 {
+  position: absolute;
+  background-color: blue;
+  width: 40.1%;
+  height: 90%;
+  left: 0%;
+  top: 6%;
+  border-left: var(--l) solid black;
+  left: 50%;
+}
+}

@@ -82,6 +82,7 @@
   font-weight: 500;
   font-size: calc(var(--wpx)/19);
   padding: 1%;
+  transition: border-radius 1s, background-color 1.4s, color 2s, border-color 2s; 
   line-height: 3;
 }
 
@@ -166,6 +167,11 @@ figcaption {
     border-width: calc(var(--wpx)/300);
     width: 6%;
     height: 9%;
+  }
+
+  .menu-link {
+    border: calc(var(--wpx)/250) solid black;
+    font-size: calc(var(--wpx)/40);
   }
 
   /* HEADERS ------------------------------------------- */
