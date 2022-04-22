@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- CHARACTER ENCODING ////////////////////////////////// -->
+  <!-- Always place at the top! -->
+  <meta charset="utf-8" />
+
+  <!-- MOBILE-SPECIFIC //////////////////////////////////// -->
+  <!-- Always place second! -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="black" />
+
+  <!-- SEARCH ENGINE ////////////////////////////////////// -->
+  <!-- Description should be 160 characters or less -->
+  <meta name="description" content="Piet Mondrian was a painter and theorist who profoundly impacted the art world. This website explores his life and art, and shows his ideas applied to web-design." />
+
+  <!-- BROWSER TAB ///////////////////////////////////// -->
+  <title>Mondrian - Chapter 4</title>
+  <!-- <link rel="icon" type="image/png" href="./assets/visual/icons/favicon.ico" /> -->
+
+  <!-- Open Graph ////////////////////////////////////// -->
+  <meta property="og:title" content="Mondrian" /> 
+  <meta property="og:type" content="website" /> 
+  <meta property="og:image" content="https://driijko.github.io/mondrian/mondrian-logo.png" /> 
+  <meta property="og:description" content="Explore the life and art of Piet Mondrian." />
+  <meta property="og:url" content="" />         
+
+  <!-- JS & CSS //////////////////////////////////////////// -->
+  <script src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="./chapter4/chapter4.css" />  
+  <link rel="stylesheet" type="text/css" href="./chapter4/chapter4-portrait.css" />  
+  <link rel="stylesheet" type="text/css" href="./chapter4/chapter4-landscape.css" />  
+  <link rel="stylesheet" type="text/css" href="./hide.css" />  
+
+  <!-- GOOGLE FONTS ///////////////// -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,400;1,500&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <!-- FIXED LAYER /////////////////////////////////////// -->
+  <div id="fixed-layer">
+    <div class="ur">
+
+      <div id="f-rec1" class="anim rec"></div>
+      <div id="f-rec2" class="anim rec"></div>
+      <div id="f-rec3" class="anim rec"></div>
+
+      <div id="f-line1" class="anim line"></div>
+      <div id="f-line2" class="anim line"></div>
+      <div id="f-line3" class="anim line"></div>
+      <div id="f-line4" class="anim line"></div>
+
+    </div>
+  </div>
+
+  <!-- MAIN SCROLLING CONTAINER ///////////////////////////// -->
+  <div id="msc">
+
+    <div class="vp">
+      <div class="ur p-lay1">
+        <!-- <p>
+          Mondrian didn't know where to go, what to do, who to call, when to call. 
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis quaerat dolore tenetur! Sequi id quidem eum magnam, nesciunt minus 
+        </p> -->
+        <figure class="p-lay2">
+          <picture>
+            <!-- <source srcset="./chapter3/pic2-large.jpg" media="(min-width:1921px)" /> -->
+            <img src="./chapter3/pic16-small.jpg" alt="Georges Braque painting La Guitare, from 1910." />
+          </picture>
+          <figcaption>
+            Georges Braque (1909 - 1910), <br/><i>La Guitare</i>
+          </figcaption>
+        </figure>
+        <a class="arrow-link pos1" href="#">
+          <svg viewbox="0 0 100 100">
+            <path fill="black"
+              d="M 17,25
+              L 50,83
+              L 83,25
+              L 50,42
+            Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

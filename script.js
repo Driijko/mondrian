@@ -1,3 +1,10 @@
+window.addEventListener("load",function() {
+  setTimeout(function(){
+      // This hides the address bar:
+      window.scrollTo(0, 1);
+  }, 0);
+});
+
 function layout () {
   // Redefine 'vh' in CSS based on what's actually available (excluding address bar).
   let vh = window.innerHeight * 0.01;
@@ -25,7 +32,7 @@ function layout () {
       document.documentElement.style.setProperty("--vg", "block");
       document.documentElement.style.setProperty("--hg", "none");
     };
-    // document.documentElement.style.setProperty("--orientation", "portrait");
+    document.documentElement.style.setProperty("--orientation", "portrait");
   }
   else {
     let aspectRatio = window.innerWidth / window.innerHeight;

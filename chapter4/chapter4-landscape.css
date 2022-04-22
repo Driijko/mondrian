@@ -1,0 +1,46 @@
+@media only screen and (orientation: landscape) {
+  /* CSS TOOLS ////////////////////////////////////////////// */
+  .portrait {
+    display: none;
+  }
+
+  .cv2, .cv3 {
+    height: 100%;
+    position: relative;
+  }
+
+  .cvi2, .cvi3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .cvi2 a, .cvi3 a {
+    pointer-events: initial;
+  }
+
+  /* CONTENT ///////////////////////////////////////////////// */
+  /* GENERAL ---------------------------------------------- */
+  :root {
+    --l: calc(var(--wpx)/150);
+  }
+
+  /* NAVIGATION ------------------------------------------- */
+  .arrow-link {
+    border-width: calc(var(--wpx)/300);
+    width: 6%;
+    height: 9%;
+  }
+
+  /* PARAGRAPHS ------------------------------------------- */
+  p {
+    font-size: calc(var(--wpx)/50);
+  }
+  
+  /* IMAGES & FIGURES ------------------------------  */
+  figcaption {
+    font-size: calc(var(--wpx)/60)
+  }
+}

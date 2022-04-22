@@ -1,0 +1,198 @@
+@media only screen and (orientation: portrait) {
+/* CSS TOOLS ///////////////////////////////////////////// */
+.landscape {
+  display: none;
+}
+
+.cv2 {
+  width: 100%;
+  height: 200%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi2 {
+  width: 100%;
+  height: 50%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv3 {
+  width: 100%;
+  height: 300%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi3 {
+  width: 100%;
+  height: 33.3333%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTENT //////////////////////////////////////////////////// */
+/* GENERAL ----------------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/60);
+}
+
+.ur.p-lay1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.ur.p-lay2 figure {
+  height: 100%;
+  max-height: 100%;
+  padding-bottom: 15%;
+}
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/100);
+  width: 11%;
+  height: 6%;
+}
+
+.arrow-link.pos1 {
+  left: 85%;
+  top: 92%;
+}
+
+/* PARAGRAPHS --------------------------------------------------- */
+p {
+  font-size: calc(var(--wpx)/22);
+  padding: 5%;
+  border-top: var(--l) solid black;
+  border-bottom: var(--l) solid black;
+  background-color: white;
+}
+
+/* IMAGES & FIGURES ------------------------------------------- */
+figcaption {
+  font-size: calc(var(--wpx)/25);
+}
+
+/* figure {
+  max-height: 80%;
+} */
+
+/* figure picture {
+  max-height: 85%;
+} */
+
+/* figure.p-lay1 {
+  flex-direction: column;
+  padding: 5%;
+  padding-top: 10%;
+} */
+
+/* figure.p-lay1 picture {
+  width: 100%;
+} */
+
+/* figure.p-lay1 figcaption {
+  padding: 5%;
+} */
+
+/* figure.p-lay2 {
+  position: relative;
+  flex-direction: column;
+  padding: 20% 5% 5% 5%;
+} */
+
+/* figure.p-lay2 picture {
+  width: 100%;
+  max-height: 90%;
+} */
+
+/* figure.p-lay2 figcaption {
+  position: absolute;
+  order: 1;
+  text-align: left;
+  top: 5%;
+  left: 5%;
+} */
+
+/* figure.p-lay2 picture {
+  order:2;
+} */
+
+/* figure.p-pos1 {
+  height: 100%;
+  max-height: 100%;
+  padding-bottom: 15%;
+} */
+
+/* .ur.p-lay2 figure.p-lay1 picture {
+  max-height: 75%;
+} */
+
+/* .ur.p-lay2 figure.p-lay2 picture {
+  padding: 0%;
+  height: 100%;
+} */
+
+/* FIXED-LAYER /////////////////////////////////////////////// */
+/* LINES ------------------------------------------------------ */
+#f-line1 {
+  width: var(--l);
+  height: 60%;
+  left: 70%;
+  animation: scale-v 2s forwards ease-in-out;
+}
+
+#f-line2 {
+  animation: scale-v 2s forwards ease-in-out;
+  width: var(--l);
+  height: 60%;
+  left: 30%;
+  top: 40%;
+}
+
+#f-line3 {
+  animation: scale-h 2s forwards ease-in-out;
+  height: var(--l);
+  width: 100%;
+  top: 60%;
+}
+
+#f-line4 {
+  animation: scale-h 2s forwards ease-in-out;
+  height: var(--l);
+  width: 100%;
+  top: 40%;
+}
+
+/* RECS ---------------------------------------------------------- */
+
+#f-rec1 {
+  animation: fade-in 2s 2s forwards ease-out;
+  background-color: red;
+  width: 70%;
+  height: 40%;
+}
+
+#f-rec2 {
+  animation: fade-in 2s 3s forwards ease-out;
+  background-color: red;
+  width: 70%;
+  height: 40%;
+  left: 30%;
+  top: 60%;
+}
+
+#f-rec3 {
+  animation: fade-in 2s 2.5s forwards ease-out;
+  background-color: blue;
+  width: 30%;
+  height: 20%;
+  top: 40%;
+}
+}
