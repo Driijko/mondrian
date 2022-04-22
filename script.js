@@ -1,10 +1,3 @@
-window.addEventListener("load",function() {
-  setTimeout(function(){
-      // This hides the address bar:
-      window.scrollTo(0, 1);
-  }, 0);
-});
-
 function layout () {
   // Redefine 'vh' in CSS based on what's actually available (excluding address bar).
   let vh = window.innerHeight * 0.01;
@@ -60,7 +53,15 @@ function layout () {
   }
 }
 
-layout();
+// layout();
+
+window.addEventListener("load",function() {
+  setTimeout(function(){
+      // This hides the address bar:
+      window.scrollTo(0, 1);
+      layout();
+  }, 0);
+});
 
 function resize() {
   resizeReady = true;
