@@ -94,6 +94,7 @@ body {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  margin-bottom: 5px;
 }
 
 .vp {
