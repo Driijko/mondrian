@@ -56,11 +56,13 @@ function layout () {
 // layout();
 
 window.addEventListener("load",function() {
-  setTimeout(function(){
-      // This hides the address bar:
-      window.scrollTo(0, 1);
-      layout();
-  }, 0);
+  window.scrollTo(0, 1);
+  layout();
+  // setTimeout(function(){
+  //     // This hides the address bar:
+  //     window.scrollTo(0, 1);
+  //     layout();
+  // }, 0);
 });
 
 function resize() {
