@@ -57,9 +57,9 @@ a:focus {
 }
 
 :root {
-  /* height: 100%; */
+  height: 100%;
   -ms-overflow-style: none;
-  /* overflow: hidden; */
+  overflow: hidden;
   overflow: -moz-scrollbars-none; 
 }
 
@@ -69,11 +69,11 @@ a:focus {
 }
 
 body {
-  /* width: 100%;
+  width: 100%;
   height: 100%;
   position: fixed;
   overflow: hidden;
-  -webkit-overflow-scrolling: touch; */
+  -webkit-overflow-scrolling: touch;
 }
 
 #fixed-layer {
@@ -94,7 +94,6 @@ body {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  margin-bottom: 5px;
 }
 
 .vp {
@@ -1394,7 +1393,7 @@ h2 .date {
   }
 
   #figure24 {
-    padding: 0;
+    padding-top: 4%;
     width: 48.1%;
     left: 52%;
     height: 100%;

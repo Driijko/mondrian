@@ -53,17 +53,7 @@ function layout () {
   }
 }
 
-// layout();
-
-window.addEventListener("load",function() {
-  window.scrollTo(0, 1);
-  layout();
-  // setTimeout(function(){
-  //     // This hides the address bar:
-  //     window.scrollTo(0, 1);
-  //     layout();
-  // }, 0);
-});
+layout();
 
 function resize() {
   resizeReady = true;

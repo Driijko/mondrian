@@ -111,6 +111,32 @@ body {
   height: calc(var(--h) * 1px);
 }
 
+.cv2 {
+  width: 100%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi2 {
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv3 {
+  width: 100%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi3 {
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 i {
   font-style: italic;
   padding-right: 0.5ch;
@@ -145,7 +171,7 @@ i {
 
 /* FIXED LAYER ////////////////////////////////////////// */
 #fixed-layer {
-  background-color: white;
+  background-color: black;
 }
 
 #fixed-layer .ur {
@@ -154,6 +180,9 @@ i {
 
 /* NAVIGATION ------------------------------------------------ */
 .arrow-link {
+  border-radius: calc(var(--wpx)/100);
+  border-color: black;
+  border-style: solid;
   position: absolute;
   background-color: white;
   transition: border-radius 0.5s, background-color 1.4s; 
@@ -190,6 +219,57 @@ i {
   } 
 }
 
+/* HEADER ---------------------------------------------------- */
+h2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 1.5;
+}
+
+h2 * {
+  position: absolute;
+}
+
+h2 .title * {
+  position: absolute;
+}
+
+h2 .chapter-num {
+  animation: fade-in 2s 4s ease-in forwards;
+  font-weight: 600;
+}
+
+h2 .title {
+  font-weight: 500;
+  line-height: 2;
+  width: 100%;
+  height: 60%;
+}
+
+h2 #title1 {
+  animation: fade-in 2s 5s ease-in forwards;
+}
+
+h2 #title2 {
+  animation: fade-in 2s 5.7s ease-in forwards;
+  color: red;
+}
+
+h2 #title3 {
+  animation: fade-in 2s 7s ease-in forwards;
+}
+
+h2 .date {
+  font-weight: 400;
+  font-style: italic;
+  animation: fade-in 2s 8s ease-in forwards;
+}
+
+header .arrow-link {
+  animation: fade-in 2s 10s ease-in forwards;
+}
+
 /* PARAGRAPHS -------------------------------------------------- */
 p {
   line-height: 2;
@@ -198,12 +278,13 @@ p {
 
 /* IMAGES & FIGURES ------------------------------------------- */
 img {
-  max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
 }
 
 picture {
   display: flex;
+  justify-content: center;
 }
 
 figure {
@@ -216,7 +297,6 @@ figure {
 figure picture {
   max-width: 100%;
   max-height: 100%;
-  border: 4px solid red;
 }
 
 figcaption {
@@ -238,4 +318,61 @@ figcaption {
 
 .anim {
   opacity: 0;
+}
+
+/* FIXED-LAYER /////////////////////////////////////////////// */
+/* LINES ------------------------------------------------------ */
+#f-line1 {
+  width: var(--l);
+  height: 60%;
+  left: 70%;
+  animation: scale-v 2s forwards ease-in-out;
+}
+
+#f-line2 {
+  animation: scale-v 2s forwards ease-in-out;
+  width: var(--l);
+  height: 60%;
+  left: 30%;
+  top: 40%;
+}
+
+#f-line3 {
+  animation: scale-h 2s forwards ease-in-out;
+  height: var(--l);
+  width: 100%;
+  top: 60%;
+}
+
+#f-line4 {
+  animation: scale-h 2s forwards ease-in-out;
+  height: var(--l);
+  width: 100%;
+  top: 40%;
+}
+
+/* RECS ---------------------------------------------------------- */
+
+#f-rec1 {
+  animation: fade-in 2s 2s forwards ease-out;
+  background-color: red;
+  width: 70%;
+  height: 40%;
+}
+
+#f-rec2 {
+  animation: fade-in 2s 3s forwards ease-out;
+  background-color: red;
+  width: 70%;
+  height: 40%;
+  left: 30%;
+  top: 60%;
+}
+
+#f-rec3 {
+  animation: fade-in 2s 2.5s forwards ease-out;
+  background-color: blue;
+  width: 30%;
+  height: 20%;
+  top: 40%;
 }
