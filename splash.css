@@ -198,7 +198,7 @@ h1 {
   width: 11%;
   height: 6%;
   text-align: center;
-  transition: border-radius 0.5s, background-color 1.4s; 
+  transition: border-radius 0.5s, background-color 1s; 
   top: 36%;
   left: 52%;
   opacity: 0;

@@ -409,4 +409,159 @@ h2 .date {
   padding-bottom: 10%;
 }
 
+/* PAGE 41 ------------------------------------------ */
+#page41 .ur {
+  padding-bottom: 40%;
+}
+
+/* PAGE 42 -------------------------------------------- */
+#page42 p {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+/* PAGE 43 ------------------------------------------- */
+#page43 p {
+  position: absolute;
+  top: 18%;
+  padding: 25% 5%;
+}
+
+/* PAGE 49 ------------------------------------------ */
+#page49 p {
+  position: absolute;
+  top: 8%;
+  padding: 10% 5%;
+}
+
+#p49-line1 {
+  height: var(--l);
+  width: 100%;
+  top: 64%;
+}
+
+#p49-line2 {
+  height: var(--l);
+  width: 100%;
+  top: 80%;
+}
+
+#p49-line3 {
+  height: var(--l);
+  width: 100%;
+  top: 84%;
+}
+
+#p49-rec1 {
+  height: 3.1%;
+  width: 68.5%;
+  background-color: blue;
+  top: 60.9%;
+  left: 31.6%;
+}
+
+#p49-rec2 {
+  height: 3.1%;
+  width: 68.5%;
+  background-color: blue;
+  top: 80.9%;
+  left: 31.6%;
+}
+
+/* PAGE 50 --------------------------------------------- */
+#page50 figure {
+  height: 78%;
+}
+
+#page51 figure {
+  height: 63%;
+  padding-bottom: 12%;
+}
+
+/* PAGE 53 -------------------------------- */
+#page53 figure {
+  height: 70%;
+}
+
+/* PAGE 54 ---------------------------------- */
+#page54 p {
+  position: absolute;
+  padding: 20% 5%;
+  top: 30%;
+  background-color: red;
+  color: white;
+}
+
+#p54-line1 {
+  width: var(--l);
+  height: 100%;
+  left: 50%;
+}
+
+#p54-rec1 {
+  background-color: white;
+  width: 50%;
+  height: 30%;
+}
+#p54-rec2 {
+  background-color: white;
+  width: 50%;
+  height: 31%;
+  right: 0%;
+  bottom: 0%;
+}
+
+/* PAGE 55 -------------------------------------------- */
+#page55 p:nth-of-type(2) {
+  position: absolute;
+  top: 55%;
+}
+
+/* PAGE 58 ----------------------------------------- */
+#page58 figure {
+  height: 62%;
+}
+
+/* PAGE 59 ------------------------------- */
+#page59 .ur {
+  padding-top: 8%;
+}
+
+/* PAGE 60 --------------------------------- */
+#page60 figure {
+  margin-top: 8%;
+}
+
+/* PAGE 62 ----------------------------------- */
+.menu-link {
+  border-width: calc(var(--wpx)/150);
+  font-size: calc(var(--wpx)/19);
+  width: 21%;
+  left: 24%;
+  top: 13%;
+  background-color: yellow;
+}
+
+#next-chapter-tag {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 43%;
+  background-color: red;
+  color:white;
+}
+
+#next-chapter-link {
+  left: 46%;
+  top: 39%;
+}
+
+#page62 figure {
+  height: 40%;
+  bottom: 0%;
+  position: absolute;
+  padding: 10%;
+}
 }

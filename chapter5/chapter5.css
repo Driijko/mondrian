@@ -1,0 +1,1541 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+  display: block;
+}
+a:focus {
+	outline: none;
+}
+
+/* CSS TOOLS ////////////////////////////////////// */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+  -ms-overflow-style: none;
+  overflow: hidden;
+  overflow: -moz-scrollbars-none; 
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#fixed-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#msc {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.vp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.ur {
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+}
+
+.cv2 {
+  width: 100%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi2 {
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv3 {
+  width: 100%;
+  scroll-snap-type: y mandatory;
+}
+
+.cvi3 {
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+i {
+  font-style: italic;
+  padding-right: 0.5ch;
+}
+
+/* CONTENT - UNIVERSAL ///////////////////////////////////////// */
+/* ANIMATIONS ---------------------------------------------- */
+@keyframes fade-in {from{opacity:0;} to{opacity:1;}}
+@keyframes fade-out {from{opacity:1;} to{opacity:0;}}
+@keyframes scale-v {
+  from {
+    transform: scaleY(0);
+    opacity: 1;
+  } to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-h {
+  from {
+    opacity: 1;
+    transform: scaleX(0);
+  } to {
+    opacity: 1;
+    transform: scaleY(1);
+}}
+
+/* GENERAL ---------------------------------------------------- */
+:root {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* FIXED LAYER ////////////////////////////////////////// */
+#fixed-layer {
+  background-color: black;
+}
+
+#fixed-layer .ur {
+  background-color: white;
+}
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  border-radius: calc(var(--wpx)/100);
+  border-color: black;
+  border-style: solid;
+  position: absolute;
+  background-color: white;
+  transition: border-radius 0.5s, background-color 1s; 
+}
+
+.arrow-link svg {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-link path {
+  transition: fill 2s;
+}
+
+.arrow-link:focus-visible {
+  border-radius: 0;
+  background-color: black;
+}
+
+.arrow-link:focus-visible path {
+  fill: red;
+}
+
+@media (hover:hover) {
+  .arrow-link:hover {
+    border-radius: 0;
+    background-color: black;
+  }
+  
+  .arrow-link:hover path {
+    fill: red;
+  } 
+}
+
+.menu-link {
+  position: absolute;
+  border-color: black;
+  border-style: solid;
+  border-radius: calc(var(--wpx)/30);
+  font-weight: 500;
+  padding: 1%;
+  transition: border-radius 1s, background-color 1.4s, color 2s, border-color 2s; 
+  line-height: 3;
+}
+
+.menu-link:hover, .menu-link:focus {
+  border-radius: 0;
+  background-color: black;
+  color: red;
+}
+
+#next-chapter-tag {
+  font-weight: 600;
+}
+
+#next-chapter-link {
+  transition: border-radius 0.5s, background-color 1.4s, border-color 3s; 
+}
+
+#next-chapter-link:hover, #next-chapter-link:focus {
+  border-color: red;
+}
+
+/* HEADER ---------------------------------------------------- */
+h2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 1.5;
+}
+
+h2 * {
+  position: absolute;
+}
+
+h2 .title * {
+  position: absolute;
+}
+
+h2 .chapter-num {
+  animation: fade-in 2s 4s ease-in forwards;
+  font-weight: 600;
+}
+
+h2 .title {
+  font-weight: 500;
+  line-height: 2;
+  width: 100%;
+  height: 60%;
+}
+
+h2 #title1 {
+  animation: fade-in 2s 5s ease-in forwards;
+}
+
+h2 #title2 {
+  animation: fade-in 2s 5.7s ease-in forwards;
+  color: red;
+}
+
+h2 #title3 {
+  animation: fade-in 2s 7s ease-in forwards;
+}
+
+h2 .date {
+  font-weight: 400;
+  font-style: italic;
+  animation: fade-in 2s 8s ease-in forwards;
+}
+
+header .arrow-link {
+  animation: fade-in 2s 10s ease-in forwards;
+}
+
+/* PARAGRAPHS -------------------------------------------------- */
+p {
+  line-height: 2;
+  font-weight: 500;
+}
+
+/* IMAGES & FIGURES ------------------------------------------- */
+img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+picture {
+  display: flex;
+  justify-content: center;
+}
+
+figure {
+  background-color: black;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+figure picture {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+figcaption {
+  color: white;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 200;
+}
+
+/* FORMAL STYLE ---------------------------------------------- */
+.line {
+  background-color: black;
+  position: absolute;
+}
+
+.rec {
+  position: absolute;
+}
+
+.anim {
+  opacity: 0;
+}
+
+/* FIXED-LAYER //////////////////////////////////////////// */
+#f-line1 {
+  width: var(--l);
+  height: 100%;
+  left: 30%;
+  transform-origin: 50% 100%;
+  animation: scale-v 2s forwards ease-in-out;
+}
+
+#f-line2 {
+  height: var(--l);
+  width: 100%;
+  top: 30%;
+  transform-origin: 100% 50%;
+  animation: scale-h 2s 0.5s forwards ease-in-out;
+}
+
+#f-line3 {
+  height: var(--l);
+  width: 30%;
+  top: 40%;
+  transform-origin: 100% 50%;
+  animation: scale-h 0.6s 1.7s forwards ease-out;
+}
+
+#f-line4 {
+  height: var(--l);
+  width: 30%;
+  top: 45%;
+  transform-origin: 100% 50%;
+  animation: scale-h 0.6s 1.7s forwards ease-out;
+}
+
+#f-line5 {
+  height: var(--l);
+  width: 30%;
+  top: 95%;
+  transform-origin: 100% 50%;
+  animation: scale-h 0.6s 1.7s forwards ease-out;
+}
+
+#f-line6 {
+  width: var(--l);
+  height: 70%;
+  top: 30%;
+  left: 95%;
+  transform-origin: 50% 0%;
+  animation: scale-v 2s 0.8s forwards ease-in-out;
+}
+
+#f-rec1 {
+  background-color: blue;
+  width: 30%;
+  height: 10%;
+  top: 30%;
+  animation: fade-in 0.75s 2s ease-in forwards;
+}
+
+#f-rec2 {
+  background-color: yellow;
+  width: 30%;
+  height: 50%;
+  top: 45%;
+  animation: fade-in 1s 3.5s ease-in forwards;
+}
+
+#f-rec3 {
+  background-color: red;
+  width: 5%;
+  height: 70%;
+  top: 30%;
+  left: 95%;
+  animation: fade-in 0.75s 2.75s ease-in forwards;
+}
+
+/* HEADER ---------------------------------------------- */
+header .arrow-link {
+  animation: fade-in 2s 10s ease-in forwards;
+}
+
+h2 {
+  width: 100%;
+  height: 100%;
+}
+
+h2 .chapter-num {
+  font-size: calc(var(--wpx)/4);
+  left: 35%;
+  top: 12%;
+  animation: fade-in 3s 4.5s ease-in forwards;
+}
+
+h2 .title {
+  left: 35%; 
+  top: 31%;
+  animation: fade-in 3s 6s ease-in forwards;
+  font-size: calc(var(--wpx)/12);
+  font-weight: 600;
+}
+
+h2 .date {
+  left: 35%;
+  top: 63%;
+  animation: fade-in 3s 7.5s ease-in forwards;
+  font-size: calc(var(--wpx)/14);
+}
+
+/* PORTRAIT ////////////////////////////////////////////////
+////////////////////////////////////////////////////////////// */
+@media only screen and (orientation: portrait) {
+/* CSS TOOLS ///////////////////////////////////////////// */
+.landscape {
+  display: none;
+}
+
+.cv2 {
+  height: 200%;
+}
+
+.cvi2 {
+  height: 50%;
+}
+
+.cv3 {
+  height: 300%;
+}
+
+.cvi3 {
+  height: 33.3333%;
+}
+
+/* CONTENT //////////////////////////////////////////////////// */
+/* GENERAL ----------------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/60);
+}
+
+figure {
+  width: 100.3%;
+}
+
+/* Just paragraphs */
+.ur.p-lay1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.ur.pad1 {
+  padding-bottom: 7%;
+}
+
+.ur.p-lay1.pad1 {
+  padding-bottom: 9%;
+}
+
+.ur.p-lay1.pad1 figure {
+  max-height: 95%;
+}
+
+.ur.p-lay2, .ur.p-lay3 {
+  background-color: black;
+}
+
+/* Full figure */
+.ur.p-lay2 figure {
+  height: 100%;
+  max-height: 100%;
+}
+
+/* Landscape AR pic */
+.ur.p-lay3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10%;
+}
+
+.ur.p-lay3 figure {
+  height: 40%;
+}
+
+/* Portrait AR pic */
+.ur.p-lay4 figure {
+  position: absolute;
+  bottom: 0%;
+  width: 82%;
+}
+
+.ur.p-lay5 figure, .ur.p-lay5 p {
+  position: absolute;
+}
+
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  border-width: calc(var(--wpx)/150);
+  width: 11%;
+  height: 6%;
+}
+
+.arrow-link.pos1 {
+  left: 9.5%;
+  top: 93%;
+}
+
+/* PARAGRAPHS --------------------------------------------------- */
+p {
+  font-size: calc(var(--wpx)/22);
+  padding: 5%;
+  border-top: var(--l) solid black;
+  border-bottom: var(--l) solid black;
+  background-color: white;
+}
+
+/* IMAGES & FIGURES ------------------------------------------- */
+figcaption {
+  font-size: calc(var(--wpx)/25);
+}
+
+figure.p-lay1 {
+  padding: 5%;
+  padding-top: 10%;
+  flex-direction: column;
+}
+
+figure.p-lay1 figcaption {
+  padding-top: 5%;
+}
+
+figure.p-lay2 {
+  position: relative;
+  padding: 25% 5% 10% 5%;
+}
+
+figure.p-lay2 figcaption {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  text-align: left;
+}
+
+picture {
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+/* HEADER ----------------------------------------------- */
+header .arrow-link {
+  left: 36%;
+  top: 80%;
+}
+
+h2 .chapter-num {
+  font-size: calc(var(--wpx)/4);
+  left: 35%;
+  top: 12%;
+}
+
+h2 .title {
+  left: 35%; 
+  top: 31%;
+  font-size: calc(var(--wpx)/12);
+}
+
+h2 .date {
+  left: 35%;
+  top: 63%;
+  font-size: calc(var(--wpx)/14);
+}
+
+/* PAGE 2 --------------------------------------------- */
+#page2 figure {
+  height: 52%;
+  top: 40%;
+}
+
+#page2 img {
+  padding-top: 5%;
+}
+
+#page2 p {
+  top: 5%;
+}
+
+/* PAGE 3------------------------------------------- */
+#page3 p {
+  top: 5%;
+}
+
+#page3 figure {
+  height: 62%;
+  top: 30%;
+}
+
+/* PAGE 4 -------------------------------------------- */
+#page4 figure {
+  top: 32%;
+  height: 60%;
+}
+
+#page4 p {
+  top: 5%;
+}
+
+/* PAGE 5 -------------------------------------- */
+#page5 p {
+  width: 100%;
+}
+
+#page5 p:nth-of-type(1) {
+  top: 5%;
+}
+
+#page5 p:nth-of-type(2) {
+  top: 29%;
+}
+
+#page5 p:nth-of-type(3) {
+  top: 60%;
+}
+
+/* PAGE 7 -------------------------------------------- */
+#page7 p:nth-of-type(1) {
+  top: 9%;
+}
+
+#page7 p:nth-of-type(2) {
+  top: 49%;
+}
+
+/* PAGE 9 ------------------------------------------- */
+#page9 .ur {
+  background-color: black;
+}
+
+#page9 figure {
+  top: 24%;
+}
+
+/* PAGE 10 -------------------------------------------------- */
+#page10 .ur {
+  background-color: black;
+}
+
+#page10 figure {
+  top: 23%;
+}
+
+/* PAGE 11 ----------------------------------------------- */
+#page11 figure {
+  top: 17%;
+  height: 83%;
+}
+
+/* PAGE 12 ------------------------------------------------- */
+#page12 figure {
+  top: 27%;
+  height: 65%;
+}
+
+/* PAGE 13 ----------------------------------------------- */
+#page13 p:nth-of-type(2) {
+  top: 53%;
+}
+
+/* PAGE 14 --------------------------------------------- */
+#page14 p {
+  width: 100%;
+}
+#page14 figure {
+  height: 73%;
+  top: 27%;
+  padding-bottom: 20%;
+}
+
+/* PAGE 15 ------------------------------------------- */
+#page15 .ur {
+  background-color: black;
+}
+
+#page15 figure {
+  top: 26%;
+}
+
+/* PAGE 16 ----------------------------------------------- */
+#page16 p:nth-of-type(1) {
+  top: 20%;
+}
+#page16 p:nth-of-type(2) {
+  top: 50%;
+}
+
+#page16 .rec {
+  background-color: blue;
+  width: 68.3%;
+  height: 20%;
+  left: 31.7%;
+}
+
+/* PAGE 17 -------------------------------------------- */
+#page17 p {
+  top: 65%;
+}
+
+#page17 figure {
+  top: 5%;
+}
+
+/* PAGE 18 -------------------------------------------- */
+#page18 p {
+  top: 4%;
+}
+
+#page18 figure {
+  top: 35%;
+}
+
+/* PAGE 19 ------------------------------------------ */
+#page19 figure {
+  height: 62%;
+  padding-bottom: 13%;
+}
+
+/* PAGE 20 --------------------------------------------- */
+#page20 p {
+  padding: 15% 5%;
+  top: 20%;
+}
+
+#page20 .rec {
+  background-color: yellow;
+  width: 30%;
+  height: 30%;
+}
+
+/* PAGE 25 --------------------------------------------- */
+#page25 p:nth-of-type(2) {
+  top: 45%;
+}
+
+/* PAGe 26 -------------------------------------------- */
+#page26 p {
+  top: 3%;
+}
+#page26 figure {
+  padding: 15% 3%;
+  top: 35%;
+}
+
+/* PAGE 27 -------------------------------------- */
+#page27 p:nth-of-type(1) {
+  top: 3%;
+}
+#page27 p:nth-of-type(2) {
+  top: 30%;
+}
+
+#p27-rec1 {
+  width: 63.3%;
+  height: 36.9%;
+  background-color: red;
+  left: 31.7%;
+  top: 63%;
+}
+
+#p27-rec2 {
+  background-color: blue;
+  width: 10%;
+  height: 5%;
+  left: 50%;
+  top: 75%;
+}
+
+#p27-line1 {
+  width: var(--l);
+  height: 100%;
+  left: 50%;
+}
+
+#p27-line2 {
+  width: var(--l);
+  height: 100%;
+  left: 60%;
+}
+
+#p27-line3 {
+  height: var(--l);
+  width: 100%;
+}
+
+#p27-line4 {
+  height: var(--l);
+  width: 100%;
+  top: 80%;
+}
+
+#p27-line5 {
+  height: var(--l);
+  width: 10%;
+  top: 75%;
+  left: 50%;
+}
+
+#p27-line6 {
+  width: var(--l);
+  height: 100%;
+  left: 89%;
+}
+
+/* PAGE 29 -------------------------------------- */
+#page29 p:nth-of-type(1) {
+  top: 3%;
+}
+#page29 p:nth-of-type(2) {
+  top: 68%;
+}
+
+#p29-rec1 {
+  background-color: red;
+  width: 63.3%;
+  height: 38%;
+  top: 30%;
+  left: 31.7%;
+}
+
+/* PAGE 30 ----------------------------------------- */
+.menu-link {
+  border-width: calc(var(--wpx)/150);
+  font-size: calc(var(--wpx)/19);
+  top: 30%;
+  background-color: white;
+  left: 4.5%;
+}
+
+#next-chapter-tag {
+  top: 5%;
+  position: absolute;
+  width: 100%;
+}
+
+#next-chapter-tag span {
+  font-weight: 700;
+  font-size: calc(var(--wpx)/17);
+}
+
+#next-chapter-link {
+  top: 12%;
+  left: 75%;
+}
+
+#page30 figure {
+  height: 50%;
+  top: 50%;
+  position: absolute;
+}
+
+#page30 picture {
+  height: 70%;
+}
+}
+
+/* ////////////////////////////////////////////////////
+LANDSCAPE ///////////////////////////////////////////// 
+//////////////////////////////////////////////////////*/
+
+@media only screen and (orientation: landscape) {
+/* CSS TOOLS ////////////////////////////////////////////// */
+.portrait {
+  display: none;
+}
+
+.cv2, .cv3 {
+  height: 100%;
+  position: relative;
+}
+
+.cvi2, .cvi3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  pointer-events: none;
+}
+
+.cvi2 a, .cvi3 a {
+  pointer-events: initial;
+}
+
+/* CONTENT ///////////////////////////////////////////////// */
+/* GENERAL ---------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/150);
+}
+
+/* LAYOUT 1 ------------------------ */
+.ur.l-lay1 p {
+  position: absolute;
+  left: 30%;
+  height: 30%;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+}
+
+.ur.l-lay1 figure {
+  position: absolute;
+  top: 30%;
+  width: 90.8%;
+  height: 70%;
+  left: -0.1%;
+}
+
+.ur.l-lay1 .rec {
+  background-color: yellow;
+  width: 30.1%;
+  height: 30%;
+}
+
+/* LAYOUTS 2 - 4 ------------------------ */
+.ur.l-lay2 p, .ur.l-lay3 p, .ur.l-lay4 p {
+  background-color: white;
+  border-top: var(--l) solid black;
+  border-bottom: var(--l) solid black;
+  padding: 5% 3%;
+}
+
+/* LAYOUTS 2 & 3 -------------------------- */
+.ur.l-lay2 p, .ur-l-lay3 p {
+  width: 50%;
+}
+
+.ur.l-lay2 figure, .ur.l-lay3 figure {
+  width: 50.1%;
+  height: 100%;
+}
+
+/* LAYOUT 2 --------------------------- */
+.ur.l-lay2 figure {
+  left: 50%;
+}
+
+.ur.l-lay2 .rec {
+  background-color: yellow;
+  width: 30.1%;
+  height: 30%;
+}
+
+/* LAYOUT 3 --------------------------------------- */
+.ur.l-lay3 p {
+  left: 50%;
+  text-align: right;
+}
+
+.ur.l-lay3 figure {
+  left: -0.1%;
+}
+
+.ur.l-lay3 picture {
+  width: 80%;
+  height: 80%;
+}
+
+.ur.l-lay3 .rec {
+  width: 5%;
+  left: 95%;
+  background-color: red;
+  height: 30%;
+  border-left: var(--l) solid black;
+}
+
+/* LAYOUT 5 ---------------------------------- */
+.ur.l-lay5 figure {
+  width: 100.2%;
+  height: 100%;
+  left: -0.1%;
+  gap: 5%;
+}
+
+.ur.l-lay5 figcaption {
+  order: 2;
+}
+
+/* NAVIGATION ------------------------------------------- */
+.arrow-link {
+  border-width: calc(var(--wpx)/300);
+  width: 6%;
+  height: 9%;
+}
+
+.arrow-link.pos1 {
+  left: 92.3%;
+  top: 89.5%;
+}
+
+/* PARAGRAPHS ------------------------------------------- */
+p {
+  position: absolute;
+  font-size: calc(var(--wpx)/50);
+}
+
+/* Text-only */
+p.l-lay1 {
+  border-top: var(--l) solid black;
+  border-bottom: var(--l) solid black;
+  background-color: white;
+  padding: 5%;
+}
+
+/* IMAGES & FIGURES ------------------------------  */ 
+figure.l-lay1 {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  padding: 3%;
+}
+
+figure.l-lay1 picture {
+  height: 100%;
+  order:2;
+}
+
+figure.l-lay2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5%;
+  position: absolute;
+  left: 50%;
+  padding-bottom: 2%;
+}
+
+figure.l-lay2 picture {
+  max-height: 60%;
+  max-width: 90%;
+}
+
+figcaption {
+  font-size: calc(var(--wpx)/60)
+}
+
+/* HEADER ----------------------------------------- */
+header .arrow-link {
+  left: 60%;
+  animation: fade-in 3s 9.5s ease-in forwards;
+  top: 50%;
+}
+
+h2 .chapter-num {
+  font-size: calc(var(--wpx)/8);
+  left: 11%;
+  top: 5%;
+  animation: fade-in 3s 5s ease-in forwards;
+}
+
+h2 .title {
+  font-size: calc(var(--wpx)/15);
+  left: 33%;
+  top: 12%;
+  animation: fade-in 3s 6.5s ease-in forwards;
+}
+
+h2 .date {
+  font-size: calc(var(--wpx)/20);
+  left: 48%;
+  animation: fade-in 3s 8s ease-in forwards;
+  top: 31%;
+}
+
+/* PAGE 2------------------------------- */
+#page2 figure {
+  gap: 5%;
+}
+
+/* PAGE 3 -------------------------------- */
+#page3 p {
+  top: 20%;
+}
+
+/* PAGE 4 --------------------------------- */
+#page4 p {
+  top: 15%;
+}
+
+#page4 .line {
+  width: var(--l);
+  height: 100%;
+  left: 81.5%;
+}
+
+/* PAGE 5 ---------------------------------- */
+#page5 p {
+  left: 30%;
+  border-left: var(--l) solid black;
+}
+#page5 p:nth-of-type(1) {
+  top: 3%;
+  width: 70%;
+}
+
+#page5 p:nth-of-type(2) {
+  top: 30%;
+  width: 65%;
+}
+
+#page5 p:nth-of-type(3) {
+  top: 63%;
+  width: 65%;
+  border-bottom: none;
+}
+
+/* PAGE 7 -------------------------------------------- */
+#page7 p {
+  width: 84%;
+}
+
+#page7 p:nth-of-type(1) {
+  top: 0%;
+  border-top: none;
+}
+
+#page7 p:nth-of-type(2) {
+  top: 51%;
+  border-bottom: none;
+}
+
+#p7-line1 {
+  left: 84%;
+  height: 100%;
+  width: var(--l);
+}
+
+/* PAGE 10 ---------------------------------------------- */
+#page10 p {
+  width: 45%;
+}
+
+/* PAGE 11---------------------------------------------- */
+#page11 p {
+  top: 10%;
+}
+
+/* PAGE 13 ----------------------------------------------- */
+#page13 p:nth-of-type(1) {
+  left: 20%;
+  top: 3.8%;
+  width: 75%;
+}
+
+#page13 p:nth-of-type(2) {
+  top: 53%;
+  left: 30%;
+  border-left: var(--l) solid black;
+  width: 55%;
+}
+
+#page13 .line {
+  width: var(--l);
+}
+
+#p13-line1 {
+  height: 100%;
+  left: 20%;
+}
+
+#p13-line2 {
+  height: 30%;
+  left: 95%;
+}
+
+#p13-line3 {
+  height: 59.9%;
+  top: 40.1%;
+  left: 85%;
+}
+
+/* PAGE 14 -------------------------------------- */
+#page14 p {
+  top: 10%;
+  padding: 15% 5%;
+}
+
+/* PAGE 15 ------------------------------------ */
+#page15 p {
+  top: 10%;
+  padding: 10% 5%;
+}
+
+#page15 figure {
+  left: 40%;
+  width: 60%;
+}
+
+/* PAGE 16 ----------------------------------------- */
+#page16 p:nth-of-type(1) {
+  top: 5%;
+}
+#page16 p:nth-of-type(2) {
+  top: 47.65%;
+  left: 42%;
+}
+
+#p16-line1 {
+  width: var(--l);
+  height: 100%;
+  left: 41.5%;
+}
+
+#p16-line2 {
+  width: var(--l);
+  height: 70%;
+  top: 30%;
+  left: 90.5%;
+}
+
+#page16 .rec {
+  width: 57.9%;
+  height: 30%;
+  background-color: blue;
+  left: 42.1%;
+}
+
+/* PAGE 18 -------------------------------------------------- */
+#page18 p {
+  left: 57.5%;
+  top: 30%;
+  text-align: left;
+}
+
+#page18 figure {
+  width: 57.6%;
+}
+
+/* PAGE 19 ---------------------------------------------------- */
+#page19 p {
+  background-color: white;
+  width: 100%;
+  border-bottom: var(--l) solid black;
+  padding: 2% 5%;
+}
+
+#page19 figure {
+  height: 61%;
+  top: 39%;
+  left: -0.1%;
+  width: 91%;
+}
+
+#page19 picture {
+  max-height: 90%;
+  height: 90%;
+}
+/* PAGE 20 ---------------------------------------------- */
+#page20 p {
+  top: 19%;
+}
+#page20 .line {
+  width: var(--l);
+  height: 100%;
+  left: 70%;
+}
+
+#page20 .rec {
+  background-color: blue;
+  width: 30%;
+  height: 30%;
+  left: 70%;
+}
+
+/* PAGE 25 --------------------------------------------- */
+#page25 p:nth-of-type(1) {
+  border: none;
+  padding: 3.4% 3%;
+}
+
+#page25 p:nth-of-type(2) {
+  top: 58.4%;
+  border: none;
+}
+
+#page25 .line {
+  width: 100%;
+  height: var(--l);
+  top: 58%;
+}
+
+#page25 .rec {
+  background-color: red;
+  width: 64.35%;
+  top: 31.05%;
+  height: 28%;
+  left: 30.65%;
+}
+
+/* PAGE 26 -------------------------------------------- */
+#page26 p {
+  width: 100%;
+}
+
+#page26 figure {
+  top: 40%;
+  left: -0.1%;
+  width: 100.2%;
+  height: 60%;
+}
+
+/* PAGE 27 -------------------------------------- */
+#page27 p:nth-of-type(1) {
+  padding-bottom: 5.7%;
+  border-top: none;
+}
+#page27 p:nth-of-type(2) {
+  top: 30%;
+}
+
+#p27-line1 {
+  width: var(--l);
+  height: 100%;
+  left: 78%;
+}
+
+#p27-line2 {
+  width: var(--l);
+  height: 70%;
+  top: 30%;
+  left: 66%;
+}
+
+#p27-line3 {
+  height: var(--l);
+  width: 100%;
+  top: 84%;
+}
+
+#p27-line4 {
+  height: 100%;
+  width: var(--l);
+  left: 90%;
+}
+
+#p27-line5 {
+  height: var(--l);
+  width: 34%;
+  left: 66%;
+  top: 50%;
+}
+
+#p27-line6 {
+  height: var(--l);
+  width: 34%;
+  left: 66%;
+  top: 55%;
+}
+
+#p27-rec1 {
+  background-color: yellow;
+  width: 12%;
+  left: 78.6%;
+  height: 30%;
+}
+
+#p27-rec2 {
+  background-color: yellow;
+  width: 24%;
+  height: 70%;
+  left: 66%;
+  top: 31%;
+}
+
+#p27-rec3 {
+  background-color: blue;
+  width: 34%;
+  height: 5%;
+  left: 66%;
+  top: 50%;
+}
+
+/* PAGE 29 -------------------------------------- */
+#page29 p {
+  width: 100%;
+}
+
+#page29 p:nth-of-type(1) {
+  top: 4%;
+}
+#page29 p:nth-of-type(2) {
+  top: 55%;
+}
+
+#p29-line1 {
+  width: var(--l);
+  height: 100%;
+  left: 65%;
+}
+
+#p29-rec1 {
+  background-color: red;
+  width: 64.33%;
+  height: 38%;
+  top: 30%;
+  left: 30.65%;
+}
+
+#p29-rec2 {
+  background-color: blue;
+  width: 35.1%;
+  height: 41.7%;
+  left: 65%;
+  top: 5%;
+}
+
+#p29-rec3 {
+  background-color: blue;
+  width: 35.1%;
+  height: 28.9%;
+  left: 65%;
+  top: 56%;
+}
+
+/* PAGE 30 ----------------------------------------- */
+.menu-link {
+  font-size: calc(var(--wpx)/40);
+  border-width: calc(var(--wpx)/250);
+  top: 61%;
+  background-color: red;
+  left: 9.5%;
+}
+
+.menu-link:hover, .menu-link:focus {
+  background-color: blue;
+  border-color: yellow;
+  color: yellow
+}
+
+#next-chapter-tag {
+  top: 5%;
+  left: 33%;
+  position: absolute;
+  width: 100%;
+  font-size: calc(var(--wpx)/37);
+}
+
+#next-chapter-tag span {
+  font-weight: 700;
+  font-size: calc(var(--wpx)/25);
+}
+
+#next-chapter-link {
+  top: 10%;
+  left: 75%;
+}
+
+#next-chapter-link:hover, #next-chapter-link:focus {
+  border-color: black;
+}
+
+#page30 figure {
+  height: 70%;
+  top: 30%;
+  left: 30%;
+  width: 65.1%;
+  position: absolute;
+}
+
+#page30 picture {
+  height: 70%;
+}
+
+#p30-rec1 {
+  background-color: yellow;
+  width: 30%;
+  height: 30%;
+}
+
+#p30-rec2 {
+  left: 78%;
+  background-color: red;
+  width: 22%;
+  height: 30%;
+}
+
+#p30-line1 {
+  width: var(--l);
+  height: 30%;
+  left: 77.5%;
+}
+}

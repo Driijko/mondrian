@@ -149,7 +149,7 @@ i {
   background-color: white;
   width: 11%;
   height: 6%;
-  transition: border-radius 0.5s, background-color 1.4s; 
+  transition: border-radius 0.5s, background-color 1s; 
   left: 45.3%;
   top: 92.8%;
 }
@@ -183,6 +183,11 @@ i {
   .arrow-link:hover path {
     fill: red;
   } 
+}
+
+.inline-link {
+  display: inline;
+  text-decoration: underline;
 }
 
 /* PARAGRAPHS -------------------------------------------------- */

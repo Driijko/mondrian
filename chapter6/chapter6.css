@@ -1,0 +1,379 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+  display: block;
+}
+a:focus {
+	outline: none;
+}
+
+/* TOOLS ///////////////////////////////////////////////////////////// */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  height: 100%;
+  -ms-overflow-style: none;
+  overflow: hidden;
+  overflow: -moz-scrollbars-none; 
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#fixed-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#msc {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.vp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.ur {
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+}
+
+i {
+  font-style: italic;
+  padding-right: 0.5ch;
+}
+
+/* CONTENT /////////////////////////////////////////////////// */
+/* ANIMATIONS --------------------------------------------- */
+@keyframes fade-in {from{opacity:0;} to{opacity:1;}}
+@keyframes fade-out {from{opacity:1;} to{opacity:0;}}
+@keyframes scale-v {
+  from {
+    transform: scaleY(0);
+    opacity: 1;
+  } to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-h {
+  from {
+    opacity: 1;
+    transform: scaleX(0);
+  } to {
+    opacity: 1;
+    transform: scaleY(1);
+}}
+
+/* GENERAL ------------------------------------------------- */
+:root {
+  --l: calc(var(--wpx)/60);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* FIXED LAYER ////////////////////////////////////////// */
+#fixed-layer {
+  background-color: black;
+}
+
+#fixed-layer .ur {
+  background-color: white;
+}
+
+#f-line1 {
+  width: var(--l);
+  height: 100%;
+  left: 29.9%;
+  animation: scale-v 3s forwards linear;
+  transform-origin: 50% 100%;
+}
+
+#f-line2 {
+  width: var(--l);
+  height: 10.5%;
+  left: 70%;
+  transform-origin: 50% 0%;
+  animation: scale-v 1.9s forwards linear;
+}
+
+#f-line3 {
+  height: var(--l);
+  width: 70%;
+  left: 30%;
+  top: 10%;
+  transform-origin: 57.5% 50%;
+  animation: scale-h 1.5s 2s forwards ease-in-out;
+}
+
+#f-line4 {
+  height: var(--l);
+  width:30%;
+  left: 0%;
+  top: 90%;
+  transform-origin: 51% 50%;
+  animation: scale-h 1.6s 2s forwards ease-in-out;
+}
+
+#f-line5 {
+  height: 10%;
+  width: var(--l);
+  left: 14.9%;
+  top: 90%;
+  transform-origin: 50% 100%;
+  animation: scale-v 1.9s forwards linear;
+}
+
+#f-rec1 {
+  background-color: yellow;
+  width: 30%;
+  height: 10%;
+  left: 70%;
+  animation: fade-in 2s 2.5s forwards ease-in;
+}
+
+#f-rec2 {
+  background-color: red;
+  width: 70%;
+  height: 90%;
+  left: 30%;
+  top: 10%;
+  animation: fade-in 2s 2.5s forwards ease-in;
+}
+
+#f-rec3 {
+  background-color: blue;
+  width: 15%;
+  height: 10%;
+  left: 0%;
+  top: 90%;
+  animation: fade-in 2s 2.5s forwards ease-in;
+}
+
+/* NAVIGATION ------------------------------------------------ */
+.arrow-link {
+  position: absolute;
+  border: calc(var(--wpx)/150) solid black;
+  border-radius: calc(var(--wpx)/100);
+  background-color: white;
+  width: 11%;
+  height: 6%;
+  transition: border-radius 0.5s, background-color 1s; 
+}
+
+.arrow-link svg {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-link path {
+  transition: fill 2s;
+}
+
+.arrow-link:focus-visible {
+  border-radius: 0;
+  background-color: black;
+}
+
+.arrow-link:focus-visible path {
+  fill: red;
+}
+
+@media (hover:hover) {
+  .arrow-link:hover {
+    border-radius: 0;
+    background-color: black;
+  }
+  
+  .arrow-link:hover path {
+    fill: red;
+  } 
+}
+
+.menu-link {
+  position: absolute;
+  border-style: solid;
+  border-color: black;
+  border-radius: calc(var(--wpx)/30);
+  font-weight: 500;
+  padding: 1%;
+  transition: border-radius 1s, background-color 1.4s, color 2s, border-color 2s; 
+  line-height: 3;
+}
+
+.menu-link:hover, .menu-link:focus {
+  border-radius: 0;
+  background-color: black;
+  color: red;
+}
+
+#next-chapter-tag {
+  font-weight: 600;
+  position: absolute;
+}
+
+#next-chapter-link {
+  transition: border-radius 0.5s, background-color 1.4s, border-color 3s; 
+}
+
+#next-chapter-link:hover, #next-chapter-link:focus {
+  border-color: red;
+}
+
+/* HEADER ----------------------------------- */
+h2 {
+  position: absolute;
+  left: 30%;
+  top: 10%;
+  height: 90%;
+  width: 70%;
+  font-weight: 500;
+}
+
+h2 .title {
+  animation: fade-in 2s 5s forwards ease-in;
+}
+
+h2 .chapter-num {
+  font-weight: 500;
+  animation: fade-in 2s 4s forwards ease-in;
+}
+
+h2 .date {
+  font-weight: 400;
+  font-style: italic;
+  position: absolute;
+  animation: fade-in 2s 6s forwards ease-in;
+  display: block;
+}
+
+#leaf1 .arrow-link {
+  animation: fade-in 2s 8s forwards ease-in;
+}
+
+/* PARAGRAPHS -------------------------------------------------- */
+p {
+  line-height: 2;
+  font-size: calc(var(--wpx)/22);
+  font-weight: 500;
+}
+
+/* IMAGES & FIGURES ------------------------------------------- */
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+picture {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+figure {
+  background-color: black;
+  padding: 3%;
+}
+
+figcaption {
+  color: white;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 200;
+  font-size: calc(var(--wpx)/25);
+  padding: 3%;
+}
+
+.painting {
+  text-align: left;
+}
+
+/* BACKGROUNDS /////////////////////////////////////////// */
+.anim {
+  opacity: 0;
+}
+
+/* LINES ----------------------------------------------- */
+.line {
+  background-color: black;
+  position: absolute;
+}
+
+/* RECS ------------------------------------------------- */
+.rec {
+  position: absolute;
+}
