@@ -112,6 +112,15 @@ figure.p-lay1 figcaption {
 }
 
 /* LEAVES ////////////////////////////////////////////////////// */
+/* LEAF 2 -------------------------------------- */
+#leaf2 p {
+  position: absolute;
+  top: 0%;
+}
+#leaf2 figure {
+  position: absolute;
+  top: 25%;
+}
 /* LEAF 3 ------------------------------------ */
 #leaf3 figure {
   top: 17%;
