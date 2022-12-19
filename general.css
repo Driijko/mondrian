@@ -73,8 +73,7 @@ body {
   height: 100%;
   position: fixed;
   overflow: hidden;
-  /* -webkit-overflow-scrolling: touch; */
-  -webkit-overflow-scrolling: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 #fixed-layer {
